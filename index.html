@@ -6,14 +6,15 @@
     <title>Md. Aminul Islam | Civil Engineer Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.0/lucide.min.js"></script>
+    <!-- Updated Lucide CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* --- NEW CLICKABLE CARD CSS --- */
+        /* --- CLICKABLE CARD CSS --- */
         .card-inner {
             position: relative;
             cursor: pointer;
             overflow: hidden;
-            min-height: 380px; /* Ensures the card is tall enough */
+            min-height: 380px;
         }
         .details-layer {
             position: absolute;
@@ -21,12 +22,12 @@
             background: #2D545E; /* Deep Teal */
             color: white;
             padding: 2.5rem;
-            transform: translateY(100%);
+            transform: translateY(101%); /* Slightly more than 100 to hide completely */
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             justify-content: center;
-            z-index: 10;
+            z-index: 20;
         }
         .card-inner.active .details-layer {
             transform: translateY(0);
@@ -37,6 +38,7 @@
         .card-inner.active .main-content {
             opacity: 0;
         }
+        
         body { font-family: 'Poppins', sans-serif; background-color: #F4F7F6; color: #2D545E; }
         h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
         
@@ -86,14 +88,13 @@
                 <a href="#portfolio" class="nav-link">Portfolio</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
-            <a href="mailto:mdaminulislam332@gmail.com" class="accent-coral text-white px-5 py-2 rounded-lg font-bold text-sm hover:opacity-90">Hire Me</a>
+            <a href="mailto:mdaminulislam332@gmail.com" class="accent-coral text-white px-5 py-2 rounded-lg font-bold text-sm hover:opacity-90 transition">Hire Me</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="pt-32 pb-20 px-6">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <!-- Left Side: Text -->
             <div>
                 <h1 class="text-5xl md:text-6xl font-bold leading-tight text-teal-primary">
                     Aspiring Civil Engineer | <span class="text-gray-400 font-light">Building Design Enthusiast</span>
@@ -107,25 +108,23 @@
                 </div>
             </div>
 
-            <!-- Right Side: Photo Area -->
             <div class="relative h-[420px] w-full max-w-sm mx-auto">
                 <div class="absolute inset-0 bg-coral rotate-3 rounded-3xl opacity-10"></div>
                 <div class="relative h-full w-full img-box rounded-3xl shadow-2xl border-4 border-white">
-                    <!-- Your custom position is preserved here -->
                     <img src="images/profile.jpg" 
                          alt="Aminul Islam" 
                          class="w-full h-full object-cover" 
                          style="object-position: 6% top;">
                 </div>
             </div>
-        </div> <!-- End of Grid -->
-    </section> <!-- End of Section -->
+        </div>
+    </section>
 
    <!-- About & Leadership -->
     <section id="about" class="py-20 px-6">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
             
-            <!-- Education Card (Interactive) -->
+            <!-- Education Card -->
             <div class="glass-card p-10 rounded-3xl card-inner" onclick="this.classList.toggle('active')">
                 <div class="main-content">
                     <h2 class="text-2xl font-bold mb-6">Education</h2>
@@ -144,24 +143,19 @@
                     </p>
                 </div>
                 
-                <!-- This layer slides up when clicked -->
                 <div class="details-layer">
                     <h3 class="text-xl font-bold mb-4 text-coral">Academic Details</h3>
                     <ul class="text-sm space-y-4">
                         <li class="flex items-start">
-                            <i data-lucide="check" class="w-4 h-4 mr-2 text-coral mt-1"></i> 
+                            <i data-lucide="check-circle-2" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> 
                             <span>Focused on Structural Engineering & BIM modeling.</span>
                         </li>
-                        
-                        <!-- WEB ICON & LINK -->
                         <li class="flex items-start">
-                            <i data-lucide="globe" class="w-4 h-4 mr-2 text-coral mt-1"></i> 
+                            <i data-lucide="globe" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> 
                             <a href="https://www.mohsincollege.edu.bd/en" target="_blank" class="hover:underline">mohsincollege.edu.bd/en</a>
                         </li>
-                        
-                        <!-- MAP ICON & ADDRESS -->
                         <li class="flex items-start">
-                            <i data-lucide="map-pin" class="w-4 h-4 mr-2 text-coral mt-1"></i> 
+                            <i data-lucide="map-pin" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> 
                             <span>College Road, Chattogram-4000, Bangladesh</span>
                         </li>
                     </ul>
@@ -169,7 +163,7 @@
                 </div>
             </div>
 
-            <!-- Leadership Card (Interactive) -->
+            <!-- Leadership Card -->
             <div class="glass-card p-10 rounded-3xl card-inner" onclick="this.classList.toggle('active')">
                 <div class="main-content">
                     <h2 class="text-2xl font-bold mb-6 text-coral">Leadership Experience</h2>
@@ -183,40 +177,47 @@
                     </p>
                 </div>
 
-                <!-- This layer slides up when clicked -->
                 <div class="details-layer">
                     <h3 class="text-xl font-bold mb-4 text-coral">Roles & Impact</h3>
                     <ul class="text-sm space-y-4">
-                        <li class="flex items-start"><i data-lucide="star" class="w-4 h-4 mr-2 text-coral mt-1"></i> <span>Organized and led 5+ major technical workshops at KUET.</span></li>
-                        <li class="flex items-start"><i data-lucide="star" class="w-4 h-4 mr-2 text-coral mt-1"></i> <span>Managed Welfare and activities for 200+ KUET students.</span></li>
-                        <li class="flex items-start"><i data-lucide="star" class="w-4 h-4 mr-2 text-coral mt-1"></i> <span>Actively contributing to Research on Sustainable Construction.</span></li>
+                        <li class="flex items-start">
+                            <i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> 
+                            <span>Organized and led 5+ major technical workshops at KUET.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> 
+                            <span>Managed Welfare and activities for 200+ students.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> 
+                            <span>Actively contributing to Research on Sustainable Construction.</span>
+                        </li>
                     </ul>
                     <p class="mt-auto text-[10px] uppercase tracking-widest opacity-50 text-center">Click again to close</p>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- Services -->
+    <!-- Services Section -->
     <section id="services" class="py-20 bg-teal-primary text-white">
-        <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6 text-center">
             <h2 class="text-3xl font-bold mb-12">Expertise</h2>
             <div class="grid md:grid-cols-4 gap-6">
-                <div class="p-8 bg-white/5 border border-white/10 rounded-2xl text-center">
-                    <i data-lucide="map" class="mx-auto mb-4 text-coral"></i>
+                <div class="p-8 bg-white/5 border border-white/10 rounded-2xl">
+                    <i data-lucide="map" class="mx-auto mb-4 text-coral w-8 h-8"></i>
                     <h4 class="font-bold">Project Planning</h4>
                 </div>
-                <div class="p-8 bg-white/5 border border-white/10 rounded-2xl text-center">
-                    <i data-lucide="pen-tool" class="mx-auto mb-4 text-coral"></i>
+                <div class="p-8 bg-white/5 border border-white/10 rounded-2xl">
+                    <i data-lucide="pen-tool" class="mx-auto mb-4 text-coral w-8 h-8"></i>
                     <h4 class="font-bold">Architectural Design</h4>
                 </div>
-                <div class="p-8 bg-white/5 border border-white/10 rounded-2xl text-center">
-                    <i data-lucide="box" class="mx-auto mb-4 text-coral"></i>
+                <div class="p-8 bg-white/5 border border-white/10 rounded-2xl">
+                    <i data-lucide="box" class="mx-auto mb-4 text-coral w-8 h-8"></i>
                     <h4 class="font-bold">Structural Modeling</h4>
                 </div>
-                <div class="p-8 bg-white/5 border border-white/10 rounded-2xl text-center">
-                    <i data-lucide="layers" class="mx-auto mb-4 text-coral"></i>
+                <div class="p-8 bg-white/5 border border-white/10 rounded-2xl">
+                    <i data-lucide="layers" class="mx-auto mb-4 text-coral w-8 h-8"></i>
                     <h4 class="font-bold">Visualization</h4>
                 </div>
             </div>
@@ -228,7 +229,6 @@
         <div class="max-w-7xl mx-auto">
             <h2 class="text-3xl font-bold mb-12 flex items-center"><span class="w-8 h-1 bg-coral mr-4"></span> Portfolio Projects</h2>
             <div class="grid md:grid-cols-3 gap-8">
-                
                 <!-- Project 1 -->
                 <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
                     <div class="h-48 img-box bg-slate-200">
@@ -239,7 +239,6 @@
                         <p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">Revit • Lumion</p>
                     </div>
                 </div>
-
                 <!-- Project 2 -->
                 <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
                     <div class="h-48 img-box bg-slate-200">
@@ -250,7 +249,6 @@
                         <p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">AutoCAD</p>
                     </div>
                 </div>
-
                 <!-- Project 3 -->
                 <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
                     <div class="h-48 img-box bg-slate-200">
@@ -261,7 +259,6 @@
                         <p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">MS Project</p>
                     </div>
                 </div>
-
                 <!-- Project 4 -->
                 <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
                     <div class="h-48 img-box bg-slate-200">
@@ -272,7 +269,6 @@
                         <p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">ETABS</p>
                     </div>
                 </div>
-
                 <!-- Project 5 -->
                 <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
                     <div class="h-48 img-box bg-slate-200">
@@ -283,7 +279,6 @@
                         <p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">SketchUp</p>
                     </div>
                 </div>
-
                 <!-- Project 6 -->
                 <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
                     <div class="h-48 img-box bg-slate-200">
@@ -294,12 +289,11 @@
                         <p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">Visualization</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Contact Section -->
     <section id="contact" class="py-20 px-6 max-w-4xl mx-auto">
         <div class="glass-card rounded-[40px] overflow-hidden flex flex-col md:flex-row shadow-2xl">
             <div class="bg-teal-primary text-white p-12 md:w-1/2">
@@ -314,7 +308,7 @@
                 <form class="space-y-4">
                     <input type="text" placeholder="Your Name" class="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-coral/20">
                     <textarea placeholder="Your Message" rows="3" class="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-coral/20"></textarea>
-                    <button class="accent-coral text-white w-full py-4 rounded-xl font-bold shadow-lg hover:brightness-110">Send Message</button>
+                    <button class="accent-coral text-white w-full py-4 rounded-xl font-bold shadow-lg hover:brightness-110 transition">Send Message</button>
                 </form>
             </div>
         </div>
@@ -324,8 +318,15 @@
         © 2024 Md. Aminul Islam | KUET BECM
     </footer>
 
+    <!-- Updated Script Section -->
     <script>
-        lucide.createIcons();
+        // Use this to ensure icons render even if they start hidden
+        lucide.createIcons({
+            attrs: {
+                'stroke-width': 2.5,
+                'stroke': 'currentColor'
+            }
+        });
     </script>
 </body>
 </html>
