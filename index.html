@@ -110,6 +110,24 @@
             background: #FF6B6B;
             color: white;
         }
+        /* Leftward Arrow Button */
+        .prev-slide-btn {
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 12px 6px;
+            border-radius: 0 12px 12px 0; 
+            cursor: pointer;
+            color: #FF6B6B;
+            transition: 0.3s;
+        }
+        .prev-slide-btn:hover {
+            background: #FF6B6B;
+            color: white;
+        }
     </style>
 </head>
 <body class="engineering-grid">
@@ -161,9 +179,8 @@
     <section id="about" class="py-20 px-6">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
             
-            <!-- Education Card with Hidden Slider -->
+            <!-- Education Card with Slider -->
             <div class="glass-card p-10 rounded-3xl card-inner" onclick="this.classList.toggle('active')">
-                <!-- FRONT FACE: Visible on Landing -->
                 <div class="main-content">
                     <h2 class="text-2xl font-bold mb-6">Education</h2>
                     <div class="space-y-6">
@@ -181,9 +198,14 @@
                     </p>
                 </div>
                 
-                <!-- THE SLIDING LAYER: Only visible after click -->
                 <div class="details-layer">
-                    <div class="slide-nav-btn" onclick="moveDetailsSlide(event)">
+                    <!-- LEFT ARROW -->
+                    <div class="prev-slide-btn" onclick="moveDetailsSlide(event, -1)">
+                        <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                    </div>
+
+                    <!-- RIGHT ARROW -->
+                    <div class="slide-nav-btn" onclick="moveDetailsSlide(event, 1)">
                         <i data-lucide="chevron-right" class="w-6 h-6"></i>
                     </div>
 
@@ -194,66 +216,35 @@
                             <div class="details-slide">
                                 <h3 class="text-xl font-bold mb-4 text-coral">Undergraduate Details</h3>
                                 <ul class="text-sm space-y-3">
-                                    <li class="flex items-start">
-                                        <i data-lucide="building-2" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> 
-                                        <span>Dept. of Building Engineering and Construction management</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i data-lucide="graduation-cap" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> 
-                                        <span>Khulna University of Engineering & Technology</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i data-lucide="map-pin" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> 
-                                        <span>Khulna-9203, Bangladesh</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i data-lucide="globe" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> 
-                                        <a href="https://kuet.ac.bd" target="_blank" class="hover:underline">kuet.ac.bd</a>
-                                    </li>
+                                    <li class="flex items-start"><i data-lucide="building-2" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Dept. of Building Engineering and Construction management</span></li>
+                                    <li class="flex items-start"><i data-lucide="graduation-cap" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Khulna University of Engineering & Technology</span></li>
+                                    <li class="flex items-start"><i data-lucide="map-pin" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Khulna-9203, Bangladesh</span></li>
+                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <a href="https://kuet.ac.bd" target="_blank" class="hover:underline">kuet.ac.bd</a></li>
                                 </ul>
                             </div>
 
                             <!-- Slide 2: College -->
                             <div class="details-slide">
                                 <h3 class="text-xl font-bold mb-4 text-coral">College Details</h3>
-                                <ul class="text-sm space-y-4">
-                                    <li class="flex items-start">
-                                        <i data-lucide="graduation-cap" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> 
-                                        <span>Govt. Hazi Muhammad Mohsin College</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i data-lucide="map-pin" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> 
-                                        <span>College Road, Chattogram-4000</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i data-lucide="globe" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> 
-                                        <a href="https://mohsincollege.edu.bd" target="_blank" class="hover:underline">mohsincollege.edu.bd</a>
-                                    </li>
+                                <ul class="text-sm space-y-3">
+                                    <li class="flex items-start"><i data-lucide="graduation-cap" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Govt. Hazi Muhammad Mohsin College</span></li>
+                                    <li class="flex items-start"><i data-lucide="map-pin" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>College Road, Chattogram-4000</span></li>
+                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <a href="https://mohsincollege.edu.bd" target="_blank" class="hover:underline">mohsincollege.edu.bd</a></li>
                                 </ul>
                             </div>
 
-                            <!-- Slide 3: High School -->
+                            <!-- Slide 3: School -->
                             <div class="details-slide">
                                 <h3 class="text-xl font-bold mb-4 text-coral">High School Details</h3>
-                                <ul class="text-sm space-y-4">
-                                    <li class="flex items-start">
-                                        <i data-lucide="school" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> 
-                                        <span>BEPZA Public School & College</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i data-lucide="map-pin" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> 
-                                        <span>Chattogram EPZ, EPZ-4223, Chattogram</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i data-lucide="globe" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> 
-                                        <a href="https://www.bepzacollegectg.edu.bd" target="_blank" class="hover:underline">bepzacollegectg.edu.bd</a>
-                                    </li>
+                                <ul class="text-sm space-y-3">
+                                    <li class="flex items-start"><i data-lucide="school" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>BEPZA Public School & College</span></li>
+                                    <li class="flex items-start"><i data-lucide="map-pin" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Chattogram EPZ, EPZ-4223, Chattogram</span></li>
+                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <a href="https://www.bepzacollegectg.edu.bd" target="_blank" class="hover:underline">bepzacollegectg.edu.bd</a></li>
                                 </ul>
                             </div>
-
                         </div>
                     </div>
-                    <p class="mt-auto text-[9px] uppercase tracking-widest opacity-50 text-center">Click Arrow for More | Click card to close</p>
+                    <p class="mt-auto text-[9px] uppercase tracking-widest opacity-50 text-center">Use Arrows to Switch | Click card to close</p>
                 </div>
             </div>
 
@@ -270,22 +261,12 @@
                         <i data-lucide="mouse-pointer-2" class="w-4 h-4 mr-2"></i> Click to see Impact
                     </p>
                 </div>
-
                 <div class="details-layer">
                     <h3 class="text-xl font-bold mb-4 text-coral">Roles & Impact</h3>
                     <ul class="text-sm space-y-4">
-                        <li class="flex items-start">
-                            <i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> 
-                            <span>Organized and led 5+ major technical workshops at KUET.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> 
-                            <span>Managed Welfare and activities for 200+ students.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> 
-                            <span>Actively contributing to Research on Sustainable Construction.</span>
-                        </li>
+                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Organized and led 5+ major technical workshops at KUET.</span></li>
+                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Managed Welfare and activities for 200+ students.</span></li>
+                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Actively contributing to Research on Sustainable Construction.</span></li>
                     </ul>
                     <p class="mt-auto text-[10px] uppercase tracking-widest opacity-50 text-center">Click again to close</p>
                 </div>
@@ -298,22 +279,10 @@
         <div class="max-w-7xl mx-auto px-6 text-center">
             <h2 class="text-3xl font-bold mb-12 italic">Core Engineering Expertise</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
-                <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
-                    <i data-lucide="map" class="mx-auto mb-4 text-coral w-8 h-8"></i>
-                    <h4 class="font-bold">Project Planning</h4>
-                </div>
-                <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
-                    <i data-lucide="pen-tool" class="mx-auto mb-4 text-coral w-8 h-8"></i>
-                    <h4 class="font-bold">Architectural Design</h4>
-                </div>
-                <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
-                    <i data-lucide="box" class="mx-auto mb-4 text-coral w-8 h-8"></i>
-                    <h4 class="font-bold">Structural Modeling</h4>
-                </div>
-                <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
-                    <i data-lucide="layers" class="mx-auto mb-4 text-coral w-8 h-8"></i>
-                    <h4 class="font-bold">Visualization</h4>
-                </div>
+                <div class="p-6 bg-white/5 border border-white/10 rounded-2xl"><i data-lucide="map" class="mx-auto mb-4 text-coral w-8 h-8"></i><h4 class="font-bold">Project Planning</h4></div>
+                <div class="p-6 bg-white/5 border border-white/10 rounded-2xl"><i data-lucide="pen-tool" class="mx-auto mb-4 text-coral w-8 h-8"></i><h4 class="font-bold">Architectural Design</h4></div>
+                <div class="p-6 bg-white/5 border border-white/10 rounded-2xl"><i data-lucide="box" class="mx-auto mb-4 text-coral w-8 h-8"></i><h4 class="font-bold">Structural Modeling</h4></div>
+                <div class="p-6 bg-white/5 border border-white/10 rounded-2xl"><i data-lucide="layers" class="mx-auto mb-4 text-coral w-8 h-8"></i><h4 class="font-bold">Visualization</h4></div>
             </div>
         </div>
     </section>
@@ -321,9 +290,7 @@
     <!-- Portfolio Grid -->
     <section id="portfolio" class="py-20 px-6">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 flex items-center tracking-tight">
-                <span class="w-8 h-1 bg-coral mr-4"></span> Portfolio Projects
-            </h2>
+            <h2 class="text-3xl font-bold mb-12 flex items-center tracking-tight"><span class="w-8 h-1 bg-coral mr-4"></span> Portfolio Projects</h2>
             <div class="grid md:grid-cols-3 gap-8 text-sm">
                 <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
                     <div class="h-48 img-box bg-slate-200"><img src="images/project1.jpg" alt="Project" class="w-full h-full object-cover"></div>
@@ -387,20 +354,26 @@
             }
         });
 
-        // Education Slider Logic
         let currentDetailSlide = 0;
-        function moveDetailsSlide(event) {
-            // Stops the card from closing
+        const totalSlides = 3;
+
+        function moveDetailsSlide(event, direction) {
+            // Prevents the card from closing
             event.stopPropagation();
             
             const track = document.getElementById('detailsTrack');
-            currentDetailSlide++;
             
-            // Loop back to first slide (we have 3 slides total)
-            if (currentDetailSlide >= 3) {
-                currentDetailSlide = 0;
+            // Add or subtract from index
+            currentDetailSlide += direction;
+            
+            // Loop Logic
+            if (currentDetailSlide >= totalSlides) {
+                currentDetailSlide = 0; 
+            } else if (currentDetailSlide < 0) {
+                currentDetailSlide = totalSlides - 1; 
             }
             
+            // Move the track
             track.style.transform = `translateX(-${currentDetailSlide * 100}%)`;
         }
     </script>
