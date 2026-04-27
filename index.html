@@ -14,15 +14,15 @@
             position: relative;
             cursor: pointer;
             overflow: hidden;
-            min-height: 380px;
+            min-height: 420px;
         }
         .details-layer {
             position: absolute;
             inset: 0;
             background: #2D545E; /* Deep Teal */
             color: white;
-            padding: 2.5rem;
-            transform: translateY(101%); /* Slightly more than 100 to hide completely */
+            padding: 2rem;
+            transform: translateY(101%);
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
@@ -73,7 +73,8 @@
 
         .nav-link:hover { color: #FF6B6B; transition: 0.3s; }
         html { scroll-behavior: smooth; }
-        /* Nested Slider CSS */
+
+        /* --- INTERNAL SLIDER CSS --- */
         .details-slider-container {
             width: 100%;
             height: 100%;
@@ -92,15 +93,14 @@
             flex-direction: column;
             justify-content: center;
         }
-        /* The Rightward Arrow Button */
         .slide-nav-btn {
             position: absolute;
-            right: -10px;
+            right: -15px;
             top: 50%;
             transform: translateY(-50%);
             z-index: 50;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 15px 5px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 12px 6px;
             border-radius: 12px 0 0 12px;
             cursor: pointer;
             color: #FF6B6B;
@@ -161,17 +161,18 @@
     <section id="about" class="py-20 px-6">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
             
-            <!-- Education Card -->
+            <!-- Education Card with Hidden Slider -->
             <div class="glass-card p-10 rounded-3xl card-inner" onclick="this.classList.toggle('active')">
+                <!-- FRONT FACE: Visible on Landing -->
                 <div class="main-content">
                     <h2 class="text-2xl font-bold mb-6">Education</h2>
                     <div class="space-y-6">
                         <div class="border-l-4 border-teal-primary pl-4">
-                            <p class="font-bold">B.Sc. in BECM</p>
+                            <p class="font-bold text-lg">B.Sc. in BECM</p>
                             <p class="text-sm text-gray-500">KUET | 2026 Graduating</p>
                         </div>
                         <div class="border-l-4 border-gray-300 pl-4">
-                            <p class="font-bold">HSC</p>
+                            <p class="font-bold text-lg">HSC</p>
                             <p class="text-sm text-gray-500">Govt. Hazi Muhammad Mohsin College | 2020</p>
                         </div>
                     </div>
@@ -180,29 +181,8 @@
                     </p>
                 </div>
                 
-               <!-- Education Card with Internal Slider -->
-            <div class="glass-card p-10 rounded-3xl card-inner" onclick="this.classList.toggle('active')">
-                <!-- FRONT: This stays exactly as it was -->
-                <div class="main-content">
-                    <h2 class="text-2xl font-bold mb-6 text-teal-primary">Education</h2>
-                    <div class="space-y-6">
-                        <div class="border-l-4 border-teal-primary pl-4">
-                            <p class="font-bold">B.Sc. in BECM</p>
-                            <p class="text-sm text-gray-500">KUET | 2026 Graduating</p>
-                        </div>
-                        <div class="border-l-4 border-gray-300 pl-4">
-                            <p class="font-bold">HSC</p>
-                            <p class="text-sm text-gray-500">Govt. Hazi Muhammad Mohsin College | 2020</p>
-                        </div>
-                    </div>
-                    <p class="mt-8 text-xs font-bold text-coral uppercase tracking-widest animate-bounce flex items-center">
-                        <i data-lucide="mouse-pointer-2" class="w-4 h-4 mr-2"></i> Click to see Details
-                    </p>
-                </div>
-                
-                <!-- THE INTERACTIVE SLIDING LAYER -->
+                <!-- THE SLIDING LAYER: Only visible after click -->
                 <div class="details-layer">
-                    <!-- Navigation Arrow -->
                     <div class="slide-nav-btn" onclick="moveDetailsSlide(event)">
                         <i data-lucide="chevron-right" class="w-6 h-6"></i>
                     </div>
@@ -214,9 +194,9 @@
                             <div class="details-slide">
                                 <h3 class="text-xl font-bold mb-4 text-coral">Undergraduate Details</h3>
                                 <ul class="text-sm space-y-4">
-                                    <li class="flex items-start"><i data-lucide="graduation-cap" class="w-5 h-5 mr-3 text-coral"></i> <span>Major: Building Engineering & Construction Management</span></li>
-                                    <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 mr-3 text-coral"></i> <span>Focus: Structural Analysis & BIM Modeling</span></li>
-                                    <li class="flex items-start"><i data-lucide="calendar" class="w-5 h-5 mr-3 text-coral"></i> <span>Expected: 2026</span></li>
+                                    <li class="flex items-start"><i data-lucide="graduation-cap" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Major: Building Engineering & Construction Management</span></li>
+                                    <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Focus: Structural Engineering & BIM modeling</span></li>
+                                    <li class="flex items-start"><i data-lucide="calendar" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Graduating: 2026</span></li>
                                 </ul>
                             </div>
 
@@ -224,29 +204,28 @@
                             <div class="details-slide">
                                 <h3 class="text-xl font-bold mb-4 text-coral">College (HSC) Details</h3>
                                 <ul class="text-sm space-y-4">
-                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral"></i> 
+                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> 
                                         <a href="https://www.mohsincollege.edu.bd/en" target="_blank" class="hover:underline">mohsincollege.edu.bd/en</a>
                                     </li>
-                                    <li class="flex items-start"><i data-lucide="map-pin" class="w-5 h-5 mr-3 text-coral"></i> <span>College Road, Chattogram-4000</span></li>
-                                    <li class="flex items-start"><i data-lucide="award" class="w-5 h-5 mr-3 text-coral"></i> <span>GPA: 5.00 (Science)</span></li>
+                                    <li class="flex items-start"><i data-lucide="map-pin" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>College Road, Chattogram-4000</span></li>
+                                    <li class="flex items-start"><i data-lucide="award" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Result: GPA 5.00 (Science Group)</span></li>
                                 </ul>
                             </div>
 
-                            <!-- Slide 3: High School -->
+                            <!-- Slide 3: School -->
                             <div class="details-slide">
                                 <h3 class="text-xl font-bold mb-4 text-coral">School (SSC) Details</h3>
                                 <ul class="text-sm space-y-4">
-                                    <li class="flex items-start"><i data-lucide="school" class="w-5 h-5 mr-3 text-coral"></i> <span>Secondary School Certificate</span></li>
-                                    <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral"></i> <span>Science Group - Excellence in Math & Physics</span></li>
-                                    <li class="flex items-start"><i data-lucide="calendar" class="w-5 h-5 mr-3 text-coral"></i> <span>Completed: 2018</span></li>
+                                    <li class="flex items-start"><i data-lucide="school" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Secondary School Certificate</span></li>
+                                    <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Science Group - Math & Physics Excellence</span></li>
+                                    <li class="flex items-start"><i data-lucide="calendar" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Completed: 2018</span></li>
                                 </ul>
                             </div>
 
                         </div>
                     </div>
-                    <p class="mt-auto text-[10px] uppercase tracking-widest opacity-50 text-center">Click Arrow for More | Click card to close</p>
+                    <p class="mt-auto text-[9px] uppercase tracking-widest opacity-50 text-center">Click Arrow for More | Click card to close</p>
                 </div>
-            </div>
             </div>
 
             <!-- Leadership Card -->
@@ -285,24 +264,24 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Expertise Section -->
     <section id="services" class="py-20 bg-teal-primary text-white">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-12">Expertise</h2>
-            <div class="grid md:grid-cols-4 gap-6">
-                <div class="p-8 bg-white/5 border border-white/10 rounded-2xl">
+            <h2 class="text-3xl font-bold mb-12 italic">Core Engineering Expertise</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
+                <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
                     <i data-lucide="map" class="mx-auto mb-4 text-coral w-8 h-8"></i>
                     <h4 class="font-bold">Project Planning</h4>
                 </div>
-                <div class="p-8 bg-white/5 border border-white/10 rounded-2xl">
+                <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
                     <i data-lucide="pen-tool" class="mx-auto mb-4 text-coral w-8 h-8"></i>
                     <h4 class="font-bold">Architectural Design</h4>
                 </div>
-                <div class="p-8 bg-white/5 border border-white/10 rounded-2xl">
+                <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
                     <i data-lucide="box" class="mx-auto mb-4 text-coral w-8 h-8"></i>
                     <h4 class="font-bold">Structural Modeling</h4>
                 </div>
-                <div class="p-8 bg-white/5 border border-white/10 rounded-2xl">
+                <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
                     <i data-lucide="layers" class="mx-auto mb-4 text-coral w-8 h-8"></i>
                     <h4 class="font-bold">Visualization</h4>
                 </div>
@@ -313,67 +292,33 @@
     <!-- Portfolio Grid -->
     <section id="portfolio" class="py-20 px-6">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 flex items-center"><span class="w-8 h-1 bg-coral mr-4"></span> Portfolio Projects</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Project 1 -->
+            <h2 class="text-3xl font-bold mb-12 flex items-center tracking-tight">
+                <span class="w-8 h-1 bg-coral mr-4"></span> Portfolio Projects
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8 text-sm">
                 <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
-                    <div class="h-48 img-box bg-slate-200">
-                        <img src="images/project1.jpg" alt="Project" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <p class="font-bold text-lg">Small Cottage Design</p>
-                        <p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">Revit • Lumion</p>
-                    </div>
+                    <div class="h-48 img-box bg-slate-200"><img src="images/project1.jpg" alt="Project" class="w-full h-full object-cover"></div>
+                    <div class="p-6"><p class="font-bold text-lg leading-tight">Small Cottage Design</p><p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">Revit • Lumion</p></div>
                 </div>
-                <!-- Project 2 -->
                 <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
-                    <div class="h-48 img-box bg-slate-200">
-                        <img src="images/project2.jpg" alt="Project" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <p class="font-bold text-lg">5-Storey Residential</p>
-                        <p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">AutoCAD</p>
-                    </div>
+                    <div class="h-48 img-box bg-slate-200"><img src="images/project2.jpg" alt="Project" class="w-full h-full object-cover"></div>
+                    <div class="p-6"><p class="font-bold text-lg leading-tight">5-Storey Residential</p><p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">AutoCAD</p></div>
                 </div>
-                <!-- Project 3 -->
                 <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
-                    <div class="h-48 img-box bg-slate-200">
-                        <img src="images/project3.jpg" alt="Project" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <p class="font-bold text-lg">Cost Estimation</p>
-                        <p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">MS Project</p>
-                    </div>
+                    <div class="h-48 img-box bg-slate-200"><img src="images/project3.jpg" alt="Project" class="w-full h-full object-cover"></div>
+                    <div class="p-6"><p class="font-bold text-lg leading-tight">Cost Estimation</p><p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">MS Project</p></div>
                 </div>
-                <!-- Project 4 -->
                 <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
-                    <div class="h-48 img-box bg-slate-200">
-                        <img src="images/project4.jpg" alt="Project" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <p class="font-bold text-lg">10-Storey Model</p>
-                        <p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">ETABS</p>
-                    </div>
+                    <div class="h-48 img-box bg-slate-200"><img src="images/project4.jpg" alt="Project" class="w-full h-full object-cover"></div>
+                    <div class="p-6"><p class="font-bold text-lg leading-tight">10-Storey Model</p><p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">ETABS</p></div>
                 </div>
-                <!-- Project 5 -->
                 <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
-                    <div class="h-48 img-box bg-slate-200">
-                        <img src="images/project5.jpg" alt="Project" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <p class="font-bold text-lg">Stadium Landscape</p>
-                        <p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">SketchUp</p>
-                    </div>
+                    <div class="h-48 img-box bg-slate-200"><img src="images/project5.jpg" alt="Project" class="w-full h-full object-cover"></div>
+                    <div class="p-6"><p class="font-bold text-lg leading-tight">Stadium Landscape</p><p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">SketchUp</p></div>
                 </div>
-                <!-- Project 6 -->
                 <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
-                    <div class="h-48 img-box bg-slate-200">
-                        <img src="images/project6.jpg" alt="Project" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <p class="font-bold text-lg">Interior Design</p>
-                        <p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">Visualization</p>
-                    </div>
+                    <div class="h-48 img-box bg-slate-200"><img src="images/project6.jpg" alt="Project" class="w-full h-full object-cover"></div>
+                    <div class="p-6"><p class="font-bold text-lg leading-tight">Interior Design</p><p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">Visualization</p></div>
                 </div>
             </div>
         </div>
@@ -394,7 +339,7 @@
                 <form class="space-y-4">
                     <input type="text" placeholder="Your Name" class="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-coral/20">
                     <textarea placeholder="Your Message" rows="3" class="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-coral/20"></textarea>
-                    <button class="accent-coral text-white w-full py-4 rounded-xl font-bold shadow-lg hover:brightness-110 transition">Send Message</button>
+                    <button class="accent-coral text-white w-full py-4 rounded-xl font-bold shadow-lg hover:brightness-110 transition duration-300">Send Message</button>
                 </form>
             </div>
         </div>
@@ -404,31 +349,31 @@
         © 2024 Md. Aminul Islam | KUET BECM
     </footer>
 
-    <!-- Updated Script Section -->
     <script>
-        // Use this to ensure icons render even if they start hidden
+        // Init Lucide
         lucide.createIcons({
             attrs: {
                 'stroke-width': 2.5,
                 'stroke': 'currentColor'
             }
         });
+
+        // Education Slider Logic
         let currentDetailSlide = 0;
-    function moveDetailsSlide(event) {
-        // This is the most important part: 
-        // It prevents the card from closing when you click the arrow
-        event.stopPropagation();
-        
-        const track = document.getElementById('detailsTrack');
-        currentDetailSlide++;
-        
-        // Loop back to first slide after reaching the 3rd
-        if (currentDetailSlide >= 3) {
-            currentDetailSlide = 0;
+        function moveDetailsSlide(event) {
+            // Stops the card from closing
+            event.stopPropagation();
+            
+            const track = document.getElementById('detailsTrack');
+            currentDetailSlide++;
+            
+            // Loop back to first slide (we have 3 slides total)
+            if (currentDetailSlide >= 3) {
+                currentDetailSlide = 0;
+            }
+            
+            track.style.transform = `translateX(-${currentDetailSlide * 100}%)`;
         }
-        
-        track.style.transform = `translateX(-${currentDetailSlide * 100}%)`;
-    }
     </script>
 </body>
 </html>
