@@ -37,7 +37,7 @@
         .slide img {
             width: 100%;
             height: 100%;
-            object-cover: cover;
+            object-fit: cover; /* Fixed: was object-cover: cover */
         }
 
         /* Dot Indicators */
@@ -72,7 +72,6 @@
 </head>
 <body class="engineering-grid">
 
-    <!-- Header Navigation -->
     <header class="py-8 px-6 max-w-6xl mx-auto flex justify-between items-center">
         <a href="index.html" class="flex items-center text-xs font-bold uppercase tracking-widest text-teal-primary hover:text-coral transition">
             <i data-lucide="arrow-left" class="mr-2 w-4 h-4"></i> Back to Portfolio
@@ -87,40 +86,24 @@
         <!-- AUTO-SLIDING BANNER -->
         <div class="slider-container mb-12">
             <div class="slider-track" id="sliderTrack">
-                <!-- Slide 1 -->
-                <div class="slide">
-                    <img src="images/project1_1.jpg" alt="Final Render">
-                </div>
-                <!-- Slide 2 -->
-                <div class="slide">
-                    <img src="images/project1_2.jpg" alt="Structural Plan">
-                </div>
-                <!-- Slide 3 -->
-                <div class="slide">
-                    <img src="images/project1_3.jpg" alt="3D Model View">
-                </div>
-                <!-- Slide 4 -->
-                <div class="slide">
-                    <img src="images/project1_4.jpg" alt="3D Model View">
-                </div>
-                <!-- Slide 5 -->
-                <div class="slide">
-                    <img src="images/project1_5.jpg" alt="3D Model View">
-                </div>
+                <div class="slide"><img src="images/project1_1.jpg" alt="Render 1"></div>
+                <div class="slide"><img src="images/project1_2.jpg" alt="Render 2"></div>
+                <div class="slide"><img src="images/project1_3.jpg" alt="Render 3"></div>
+                <div class="slide"><img src="images/project1_4.jpg" alt="Render 4"></div>
+                <div class="slide"><img src="images/project1_5.jpg" alt="Render 5"></div>
             </div>
 
-            <!-- DOTS -->
+            <!-- DOTS (Updated to 5 dots) -->
             <div class="dots-container" id="dotsContainer">
                 <div class="dot active" onclick="goToSlide(0)"></div>
                 <div class="dot" onclick="goToSlide(1)"></div>
                 <div class="dot" onclick="goToSlide(2)"></div>
+                <div class="dot" onclick="goToSlide(3)"></div>
+                <div class="dot" onclick="goToSlide(4)"></div>
             </div>
         </div>
 
-        <!-- PROJECT CONTENT -->
         <div class="grid md:grid-cols-3 gap-12">
-            
-            <!-- Description Column -->
             <div class="md:col-span-2">
                 <h1 class="text-4xl font-bold text-teal-primary mb-2">Small Cottage Design</h1>
                 <p class="text-coral font-bold tracking-widest uppercase text-xs mb-8">Conceptual Design: "Space for Thyself"</p>
@@ -129,77 +112,46 @@
                     <i data-lucide="file-text" class="mr-3 text-coral"></i> Project Description
                 </h3>
                 <p class="text-gray-600 leading-relaxed mb-6">
-                    The "Space for Thyself" cottage is a modern architectural solution for high-density minimalist living. As a BECM student, the goal was to design a structure that is not only visually stunning but also structurally sound and cost-effective. The design prioritizes natural light, ventilation, and a low carbon footprint.
+                    The "Space for Thyself" cottage is a modern architectural solution for high-density minimalist living. As a BECM student, the goal was to design a structure that is not only visually stunning but also structurally sound and cost-effective.
                 </p>
 
                 <h3 class="text-xl font-bold mb-4 flex items-center">
                     <i data-lucide="hard-hat" class="mr-3 text-coral"></i> Materials Used
                 </h3>
-                <div class="grid grid-cols-2 gap-4 mb-8">
-                    <div class="bg-white p-4 rounded-xl border border-gray-100 text-sm">
-                        <span class="font-bold text-teal-primary">• Reinforced Concrete:</span> Grade 30 for main frame.
-                    </div>
-                    <div class="bg-white p-4 rounded-xl border border-gray-100 text-sm">
-                        <span class="font-bold text-teal-primary">• Low-E Glass:</span> Energy efficient window glazing.
-                    </div>
-                    <div class="bg-white p-4 rounded-xl border border-gray-100 text-sm">
-                        <span class="font-bold text-teal-primary">• Timber Decking:</span> Sustainable treated wood.
-                    </div>
-                    <div class="bg-white p-4 rounded-xl border border-gray-100 text-sm">
-                        <span class="font-bold text-teal-primary">• Smart Bricks:</span> For thermal insulation.
-                    </div>
+                <div class="grid grid-cols-2 gap-4 mb-8 text-sm">
+                    <div class="bg-white p-4 rounded-xl border border-gray-100">Reinforced Concrete</div>
+                    <div class="bg-white p-4 rounded-xl border border-gray-100">Low-E Glass</div>
+                    <div class="bg-white p-4 rounded-xl border border-gray-100">Timber Decking</div>
+                    <div class="bg-white p-4 rounded-xl border border-gray-100">Smart Bricks</div>
                 </div>
             </div>
 
-            <!-- Sidebar Column: Software & Stats -->
             <div class="space-y-6">
                 <div class="bg-teal-primary text-white p-8 rounded-[32px] shadow-xl">
                     <h3 class="text-xs font-bold uppercase tracking-widest mb-6 opacity-60">Software Used</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-center text-sm font-semibold">
-                            <i data-lucide="check-circle-2" class="mr-3 text-coral w-4 h-4"></i> Autodesk Revit
-                        </li>
-                        <li class="flex items-center text-sm font-semibold">
-                            <i data-lucide="check-circle-2" class="mr-3 text-coral w-4 h-4"></i> Lumion 12
-                        </li>
-                        <li class="flex items-center text-sm font-semibold">
-                            <i data-lucide="check-circle-2" class="mr-3 text-coral w-4 h-4"></i> AutoCAD (Drafting)
-                        </li>
-                        <li class="flex items-center text-sm font-semibold">
-                            <i data-lucide="check-circle-2" class="mr-3 text-coral w-4 h-4"></i> MS Excel (Costing)
-                        </li>
+                    <ul class="space-y-4 text-sm">
+                        <li>Autodesk Revit</li>
+                        <li>Lumion 12</li>
+                        <li>AutoCAD</li>
+                        <li>MS Excel</li>
                     </ul>
                 </div>
-
-                <div class="bg-white p-8 rounded-[32px] border border-gray-200">
-                    <h3 class="text-xs font-bold uppercase tracking-widest mb-4 text-gray-400">Project Timeline</h3>
-                    <p class="text-lg font-bold text-teal-primary">4 Weeks Duration</p>
-                    <div class="mt-4 pt-4 border-t border-gray-100">
-                        <span class="text-xs font-bold text-coral tracking-widest uppercase underline">Completed in 2024</span>
-                    </div>
-                </div>
             </div>
-
         </div>
     </main>
 
-    <footer class="mt-20 py-10 text-center border-t border-gray-100 text-gray-400 text-xs uppercase tracking-widest">
-        Md. Aminul Islam | Engineering Portfolio
-    </footer>
-
     <script>
-        // Init Icons
         lucide.createIcons();
 
-        // SLIDER LOGIC
+        // UPDATED SLIDER LOGIC
         let currentSlide = 0;
-        const totalSlides = 3;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length; // Automatically counts your slides (now 5)
         const track = document.getElementById('sliderTrack');
         const dots = document.querySelectorAll('.dot');
 
         function updateSlider() {
             track.style.transform = `translateX(-${currentSlide * 100}%)`;
-            // Update dots
             dots.forEach((dot, index) => {
                 dot.classList.toggle('active', index === currentSlide);
             });
@@ -210,7 +162,6 @@
             updateSlider();
         }
 
-        // Auto Sliding every 4 seconds
         setInterval(() => {
             currentSlide = (currentSlide + 1) % totalSlides;
             updateSlider();
