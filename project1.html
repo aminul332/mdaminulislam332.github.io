@@ -10,71 +10,203 @@
     <style>
         body { font-family: 'Poppins', sans-serif; background-color: #F4F7F6; color: #2D545E; }
         h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+        
         .bg-teal-primary { background-color: #2D545E; }
         .text-coral { color: #FF6B6B; }
+        .accent-coral { background-color: #FF6B6B; }
+
+        /* Banner Slider Styles */
+        .slider-container {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+        }
+        .slider-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+        .slide {
+            min-width: 100%;
+            height: 100%;
+        }
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-cover: cover;
+        }
+
+        /* Dot Indicators */
+        .dots-container {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 30;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .dot.active {
+            background: #FF6B6B;
+            width: 30px;
+            border-radius: 10px;
+        }
+
         .engineering-grid {
             background-image: radial-gradient(#2d545e1a 1px, transparent 1px);
             background-size: 30px 30px;
         }
     </style>
 </head>
-<body class="engineering-grid pb-20">
+<body class="engineering-grid">
 
-    <!-- Header -->
-    <header class="py-10 px-6 max-w-5xl mx-auto flex justify-between items-center">
-        <a href="index.html" class="flex items-center text-sm font-bold uppercase tracking-widest text-teal-primary hover:text-coral transition">
-            <i data-lucide="arrow-left" class="mr-2 w-4 h-4"></i> Back to Home
+    <!-- Header Navigation -->
+    <header class="py-8 px-6 max-w-6xl mx-auto flex justify-between items-center">
+        <a href="index.html" class="flex items-center text-xs font-bold uppercase tracking-widest text-teal-primary hover:text-coral transition">
+            <i data-lucide="arrow-left" class="mr-2 w-4 h-4"></i> Back to Portfolio
         </a>
-        <div class="text-xs font-bold text-gray-400 uppercase tracking-widest">Project Case Study</div>
+        <div class="px-4 py-1 bg-teal-primary/5 rounded-full text-[10px] font-bold text-teal-primary uppercase tracking-tighter">
+            Civil Engineering Case Study #01
+        </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-6">
-        <!-- Title Section -->
-        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-teal-primary">Small Cottage Design</h1>
-        <p class="text-coral font-bold tracking-widest uppercase text-sm mb-10">Space for Thyself Concept</p>
-
-        <!-- Main Image Gallery (3 Photos) -->
-        <div class="grid md:grid-cols-2 gap-4 mb-12">
-            <div class="rounded-3xl overflow-hidden shadow-xl h-[400px] bg-slate-200">
-                <img src="images/project1_main.jpg" class="w-full h-full object-cover" alt="Main View">
+    <main class="max-w-6xl mx-auto px-6">
+        
+        <!-- AUTO-SLIDING BANNER -->
+        <div class="slider-container mb-12">
+            <div class="slider-track" id="sliderTrack">
+                <!-- Slide 1 -->
+                <div class="slide">
+                    <img src="images/project1_1.jpg" alt="Final Render">
+                </div>
+                <!-- Slide 2 -->
+                <div class="slide">
+                    <img src="images/project1_2.jpg" alt="Structural Plan">
+                </div>
+                <!-- Slide 3 -->
+                <div class="slide">
+                    <img src="images/project1_3.jpg" alt="3D Model View">
+                </div>
             </div>
-            <div class="grid grid-rows-2 gap-4">
-                <div class="rounded-3xl overflow-hidden shadow-lg h-[192px] bg-slate-200">
-                    <img src="images/project1_2.jpg" class="w-full h-full object-cover" alt="Detail 1">
-                </div>
-                <div class="rounded-3xl overflow-hidden shadow-lg h-[192px] bg-slate-200">
-                    <img src="images/project1_3.jpg" class="w-full h-full object-cover" alt="Detail 2">
-                </div>
+
+            <!-- DOTS -->
+            <div class="dots-container" id="dotsContainer">
+                <div class="dot active" onclick="goToSlide(0)"></div>
+                <div class="dot" onclick="goToSlide(1)"></div>
+                <div class="dot" onclick="goToSlide(2)"></div>
             </div>
         </div>
 
-        <!-- Description Section -->
+        <!-- PROJECT CONTENT -->
         <div class="grid md:grid-cols-3 gap-12">
+            
+            <!-- Description Column -->
             <div class="md:col-span-2">
-                <h2 class="text-2xl font-bold mb-6 flex items-center">
-                    <i data-lucide="info" class="mr-3 text-coral"></i> Project Overview
-                </h2>
+                <h1 class="text-4xl font-bold text-teal-primary mb-2">Small Cottage Design</h1>
+                <p class="text-coral font-bold tracking-widest uppercase text-xs mb-8">Conceptual Design: "Space for Thyself"</p>
+                
+                <h3 class="text-xl font-bold mb-4 flex items-center">
+                    <i data-lucide="file-text" class="mr-3 text-coral"></i> Project Description
+                </h3>
                 <p class="text-gray-600 leading-relaxed mb-6">
-                    This conceptual retreat, titled "Space for Thyself," focuses on creating a minimalist living environment that harmonizes with nature. As a civil engineering student, the challenge was to integrate aesthetic architectural form with structural efficiency. 
+                    The "Space for Thyself" cottage is a modern architectural solution for high-density minimalist living. As a BECM student, the goal was to design a structure that is not only visually stunning but also structurally sound and cost-effective. The design prioritizes natural light, ventilation, and a low carbon footprint.
                 </p>
-                <p class="text-gray-600 leading-relaxed">
-                    The design utilizes sustainable materials and focuses on spatial optimization for small-scale living. Every square inch is calculated to provide maximum utility while maintaining a sense of openness and tranquility.
-                </p>
+
+                <h3 class="text-xl font-bold mb-4 flex items-center">
+                    <i data-lucide="hard-hat" class="mr-3 text-coral"></i> Materials Used
+                </h3>
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                    <div class="bg-white p-4 rounded-xl border border-gray-100 text-sm">
+                        <span class="font-bold text-teal-primary">• Reinforced Concrete:</span> Grade 30 for main frame.
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border border-gray-100 text-sm">
+                        <span class="font-bold text-teal-primary">• Low-E Glass:</span> Energy efficient window glazing.
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border border-gray-100 text-sm">
+                        <span class="font-bold text-teal-primary">• Timber Decking:</span> Sustainable treated wood.
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border border-gray-100 text-sm">
+                        <span class="font-bold text-teal-primary">• Smart Bricks:</span> For thermal insulation.
+                    </div>
+                </div>
             </div>
 
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 h-fit">
-                <h3 class="font-bold mb-6 uppercase text-xs tracking-widest text-teal-primary border-b pb-2">Technical Tools</h3>
-                <ul class="space-y-4">
-                    <li class="flex items-center text-sm font-medium"><i data-lucide="check" class="w-4 h-4 mr-3 text-coral"></i> Revit (Modeling)</li>
-                    <li class="flex items-center text-sm font-medium"><i data-lucide="check" class="w-4 h-4 mr-3 text-coral"></i> Lumion (Rendering)</li>
-                    <li class="flex items-center text-sm font-medium"><i data-lucide="check" class="w-4 h-4 mr-3 text-coral"></i> Photoshop (Editing)</li>
-                </ul>
+            <!-- Sidebar Column: Software & Stats -->
+            <div class="space-y-6">
+                <div class="bg-teal-primary text-white p-8 rounded-[32px] shadow-xl">
+                    <h3 class="text-xs font-bold uppercase tracking-widest mb-6 opacity-60">Software Used</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center text-sm font-semibold">
+                            <i data-lucide="check-circle-2" class="mr-3 text-coral w-4 h-4"></i> Autodesk Revit
+                        </li>
+                        <li class="flex items-center text-sm font-semibold">
+                            <i data-lucide="check-circle-2" class="mr-3 text-coral w-4 h-4"></i> Lumion 12
+                        </li>
+                        <li class="flex items-center text-sm font-semibold">
+                            <i data-lucide="check-circle-2" class="mr-3 text-coral w-4 h-4"></i> AutoCAD (Drafting)
+                        </li>
+                        <li class="flex items-center text-sm font-semibold">
+                            <i data-lucide="check-circle-2" class="mr-3 text-coral w-4 h-4"></i> MS Excel (Costing)
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-[32px] border border-gray-200">
+                    <h3 class="text-xs font-bold uppercase tracking-widest mb-4 text-gray-400">Project Timeline</h3>
+                    <p class="text-lg font-bold text-teal-primary">4 Weeks Duration</p>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <span class="text-xs font-bold text-coral tracking-widest uppercase underline">Completed in 2024</span>
+                    </div>
+                </div>
             </div>
+
         </div>
     </main>
 
+    <footer class="mt-20 py-10 text-center border-t border-gray-100 text-gray-400 text-xs uppercase tracking-widest">
+        Md. Aminul Islam | Engineering Portfolio
+    </footer>
+
     <script>
+        // Init Icons
         lucide.createIcons();
+
+        // SLIDER LOGIC
+        let currentSlide = 0;
+        const totalSlides = 3;
+        const track = document.getElementById('sliderTrack');
+        const dots = document.querySelectorAll('.dot');
+
+        function updateSlider() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
+
+        // Auto Sliding every 4 seconds
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }, 4000);
     </script>
 </body>
 </html>
