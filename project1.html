@@ -54,12 +54,30 @@
 </head>
 <body class="engineering-grid">
 
-    <header class="py-8 px-6 max-w-6xl mx-auto flex justify-between items-center">
-        <a href="index.html" class="flex items-center text-sm font-semibold text-teal-primary hover:text-coral transition">
-            <i data-lucide="arrow-left" class="mr-2 w-4 h-4"></i> Back to Portfolio
-        </a>
-        <div class="px-4 py-1 bg-teal-primary/5 rounded-full text-[11px] font-bold text-teal-primary uppercase tracking-wider">
-            Project Case Study #01
+    <!-- Header Navigation -->
+    <header class="py-8 px-6 max-w-6xl mx-auto grid grid-cols-3 items-center">
+        <!-- LEFT: Back to Home -->
+        <div class="justify-self-start">
+            <a href="index.html" class="flex items-center text-sm font-semibold text-teal-primary hover:text-coral transition group">
+                <i data-lucide="arrow-left" class="mr-2 w-4 h-4 group-hover:-translate-x-1 transition-transform"></i> 
+                Back to Portfolio
+            </a>
+        </div>
+
+        <!-- CENTER: Case Study Number -->
+        <div class="justify-self-center">
+            <div class="px-4 py-1 bg-teal-primary/5 rounded-full text-[11px] font-bold text-teal-primary uppercase tracking-wider">
+                Project #01
+            </div>
+        </div>
+
+        <!-- RIGHT: Next Project -->
+        <div class="justify-self-end">
+            <!-- Link this to project2.html -->
+            <a href="project2.html" class="flex items-center text-sm font-semibold text-teal-primary hover:text-coral transition group">
+                Next Project
+                <i data-lucide="arrow-right" class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </a>
         </div>
     </header>
 
