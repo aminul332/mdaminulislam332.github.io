@@ -5,26 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stadium Renovation Design | Project Details</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Using only Poppins for total consistency -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* Force Poppins on every single element */
-        * {
-            font-family: 'Poppins', sans-serif !important;
-        }
-
-        body { 
-            background-color: #F4F7F6; 
-            color: #2D545E; 
-            line-height: 1.6;
-        }
-        
+        * { font-family: 'Poppins', sans-serif !important; }
+        body { background-color: #F4F7F6; color: #2D545E; line-height: 1.6; }
         .bg-teal-primary { background-color: #2D545E; }
         .text-coral { color: #FF6B6B; }
         .accent-coral { background-color: #FF6B6B; }
 
-        /* Banner Slider Styles */
         .slider-container {
             width: 100%;
             height: 500px;
@@ -39,17 +28,9 @@
             height: 100%;
             transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
         }
-        .slide {
-            min-width: 100%;
-            height: 100%;
-        }
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .slide { min-width: 100%; height: 100%; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Dot Indicators */
         .dots-container {
             position: absolute;
             bottom: 25px;
@@ -60,33 +41,19 @@
             z-index: 30;
         }
         .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.4);
-            cursor: pointer;
-            transition: 0.3s;
+            width: 10px; height: 10px; border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4); cursor: pointer; transition: 0.3s;
         }
-        .dot.active {
-            background: #FF6B6B;
-            width: 25px;
-            border-radius: 10px;
-        }
+        .dot.active { background: #FF6B6B; width: 25px; border-radius: 10px; }
 
         .engineering-grid {
             background-image: radial-gradient(#2d545e1a 1px, transparent 1px);
             background-size: 30px 30px;
         }
-
-        /* Smoothing the headings */
-        h1, h2, h3, h4 {
-            letter-spacing: -0.02em;
-        }
     </style>
 </head>
 <body class="engineering-grid">
 
-    <!-- Header Navigation -->
     <header class="py-8 px-6 max-w-6xl mx-auto flex justify-between items-center">
         <a href="index.html" class="flex items-center text-sm font-semibold text-teal-primary hover:text-coral transition">
             <i data-lucide="arrow-left" class="mr-2 w-4 h-4"></i> Back to Portfolio
@@ -97,8 +64,6 @@
     </header>
 
     <main class="max-w-6xl mx-auto px-6">
-        
-        <!-- SLIDER -->
         <div class="slider-container mb-12">
             <div class="slider-track" id="sliderTrack">
                 <div class="slide"><img src="images/project1_1.jpg" alt="Render 1"></div>
@@ -110,10 +75,7 @@
             <div class="dots-container" id="dotsContainer"></div>
         </div>
 
-        <!-- PROJECT CONTENT -->
         <div class="grid md:grid-cols-3 gap-12">
-            
-            <!-- Main Content Column -->
             <div class="md:col-span-2">
                 <h1 class="text-4xl font-bold text-teal-primary mb-2">STADIUM RENOVATION DESIGN</h1>
                 <p class="text-coral font-semibold text-sm mb-10">Concept: “Coastal Identity & Functional Renewal”</p>
@@ -126,12 +88,11 @@
                         This project proposes the renovation of an existing stadium in Khulna through a context-driven and functional design approach. Based on site analysis, key limitations were identified and addressed through improved spatial planning and user experience.
                     </p>
                     <p class="text-gray-600">
-                        The concept is inspired by coastal seashell geometry, reflected in the stadium’s form and overhead covering system. Container-style restaurant spaces reference the nearby Mongla Port, strengthening regional identity. The design emphasizes minimalism, durability, and climate-responsive material selection suitable for coastal conditions.
+                        The concept is inspired by coastal seashell geometry, reflected in the stadium’s form and overhead covering system. Container-style restaurant spaces reference the nearby Mongla Port, strengthening regional identity.
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <!-- Features -->
                     <div>
                         <h3 class="text-lg font-bold mb-4 flex items-center text-teal-primary">
                             <i data-lucide="sparkles" class="mr-3 text-coral w-5 h-5"></i> Key Features
@@ -143,8 +104,6 @@
                             <li class="flex items-center"><i data-lucide="chevron-right" class="w-4 h-4 text-coral mr-2"></i> Climate-responsive design</li>
                         </ul>
                     </div>
-
-                    <!-- Materials -->
                     <div>
                         <h3 class="text-lg font-bold mb-4 flex items-center text-teal-primary">
                             <i data-lucide="layers" class="mr-3 text-coral w-5 h-5"></i> Materials Used
@@ -159,22 +118,21 @@
                 </div>
             </div>
 
-            <!-- Sidebar Column -->
             <div class="space-y-6">
                 <!-- Software Box -->
                 <div class="bg-teal-primary text-white p-8 rounded-[35px] shadow-lg">
                     <h4 class="text-[11px] font-bold uppercase tracking-wider mb-6 opacity-60">Software Used</h4>
                     <ul class="space-y-4">
-                        <li class="flex items-center font-medium text-[15px]">
+                        <li class="flex items-center font-medium text-[15px] text-white">
                             <i data-lucide="check" class="mr-3 text-coral w-4 h-4"></i> Autodesk Revit
                         </li>
-                        <li class="flex items-center font-medium text-[15px]">
-                            <i data-lucide="check" class="mr-3 text-coral w-4 h-4"></i> Lumion 12
+                        <li class="flex items-center font-medium text-[15px] text-white">
+                            <i data-lucide="check" class="mr-3 text-coral w-4 h-4"></i> V-Ray
                         </li>
-                        <li class="flex items-center font-medium text-[15px]">
+                        <li class="flex items-center font-medium text-[15px] text-white">
                             <i data-lucide="check" class="mr-3 text-coral w-4 h-4"></i> AutoCAD
                         </li>
-                        <li class="flex items-center font-medium text-[15px]">
+                        <li class="flex items-center font-medium text-[15px] text-white">
                             <i data-lucide="check" class="mr-3 text-coral w-4 h-4"></i> MS Excel
                         </li>
                     </ul>
@@ -191,11 +149,10 @@
                 <!-- Timeline -->
                 <div class="bg-white p-8 rounded-[35px] border border-gray-200 shadow-sm">
                     <h4 class="text-[11px] font-bold uppercase tracking-wider mb-4 text-gray-400">Project Timeline</h4>
-                    <p class="text-xl font-bold text-teal-primary mb-1">1 Semester</p>
-                    <p class="text-xs font-bold text-coral uppercase tracking-wide">Completed in 2024</p>
+                    <p class="text-xl font-bold text-teal-primary mb-1">13 Weeks</p>
+                    <p class="text-xs font-bold text-coral uppercase tracking-wide underline">Completed in 2025</p>
                 </div>
             </div>
-
         </div>
     </main>
 
@@ -205,7 +162,6 @@
 
     <script>
         lucide.createIcons();
-
         const track = document.getElementById('sliderTrack');
         const dotsContainer = document.getElementById('dotsContainer');
         const slides = document.querySelectorAll('.slide');
@@ -220,23 +176,12 @@
         });
 
         const dots = document.querySelectorAll('.dot');
-
         function updateSlider() {
             track.style.transform = `translateX(-${currentSlide * 100}%)`;
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
+            dots.forEach((dot, index) => { dot.classList.toggle('active', index === currentSlide); });
         }
-
-        function goToSlide(index) {
-            currentSlide = index;
-            updateSlider();
-        }
-
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            updateSlider();
-        }, 5000);
+        function goToSlide(index) { currentSlide = index; updateSlider(); }
+        setInterval(() => { currentSlide = (currentSlide + 1) % slides.length; updateSlider(); }, 5000);
     </script>
 </body>
 </html>
