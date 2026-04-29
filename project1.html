@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* Force Poppins on every element */
+        /* Force Poppins consistency */
         * { font-family: 'Poppins', sans-serif !important; }
         body { background-color: #F4F7F6; color: #2D545E; line-height: 1.6; }
         .bg-teal-primary { background-color: #2D545E; }
@@ -40,7 +40,7 @@
         }
         .hover-link:hover { color: #FF6B6B; }
 
-        /* Banner Slider */
+        /* Banner Slider (Clean style - no arrows) */
         .slider-container {
             width: 100%; height: 500px; overflow: hidden;
             position: relative; border-radius: 40px;
@@ -52,16 +52,6 @@
         }
         .slide { min-width: 100%; height: 100%; }
         .slide img { width: 100%; height: 100%; object-fit: cover; }
-
-        /* Banner Navigation Arrows */
-        .prev-btn, .next-btn {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            background: rgba(255,255,255,0.2); color: white; padding: 15px 10px;
-            cursor: pointer; z-index: 40; transition: 0.3s;
-        }
-        .prev-btn { left: 0; border-radius: 0 15px 15px 0; }
-        .next-btn { right: 0; border-radius: 15px 0 0 15px; }
-        .prev-btn:hover, .next-btn:hover { background: #FF6B6B; }
 
         /* Dots */
         .dots-container {
@@ -85,7 +75,6 @@
                 <div class="cursor-pointer p-2 hover:bg-teal-primary/5 rounded-full transition">
                     <i data-lucide="more-vertical" class="w-5 h-5 text-teal-primary"></i>
                 </div>
-                <!-- Fly-out Links back to main sections -->
                 <div class="hover-menu">
                     <a href="index.html#home" class="hover-link">Home</a>
                     <a href="index.html#about" class="hover-link">About</a>
@@ -94,13 +83,12 @@
                     <a href="index.html#contact" class="hover-link">Contact</a>
                 </div>
             </div>
-            <!-- Links to the main portfolio or the last project in loop -->
             <a href="index.html" class="flex items-center text-[11px] font-bold text-teal-primary/40 hover:text-coral transition tracking-widest">
                 <i data-lucide="chevron-left" class="w-4 h-4 mr-1"></i> PREV
             </a>
         </div>
 
-        <!-- CENTER: ELEGANT PROJECT LABEL -->
+        <!-- CENTER: ELEGANT BADGE -->
         <div class="justify-self-center">
             <div class="px-5 py-1.5 bg-teal-primary text-white rounded-full text-[10px] font-bold uppercase tracking-[3px]">
                 Project #01
@@ -117,27 +105,21 @@
 
     <main class="max-w-6xl mx-auto px-6">
         
-        <!-- AUTO-SLIDING BANNER (5 PHOTOS) -->
+        <!-- AUTO-SLIDER (5 PHOTOS) -->
         <div class="slider-container mb-12">
-            <!-- Manual Navigation Arrows -->
-            <div class="prev-btn" onclick="moveSlide(-1)"><i data-lucide="chevron-left"></i></div>
-            <div class="next-btn" onclick="moveSlide(1)"><i data-lucide="chevron-right"></i></div>
-            
             <div class="slider-track" id="sliderTrack">
-                <div class="slide"><img src="images/project1_1.jpg" alt="Curvadium View 1"></div>
-                <div class="slide"><img src="images/project1_2.jpg" alt="Curvadium View 2"></div>
-                <div class="slide"><img src="images/project1_3.jpg" alt="Curvadium View 3"></div>
-                <div class="slide"><img src="images/project1_4.jpg" alt="Curvadium View 4"></div>
-                <div class="slide"><img src="images/project1_5.jpg" alt="Curvadium View 5"></div>
+                <div class="slide"><img src="images/project1_1.jpg" alt="Master Plan View"></div>
+                <div class="slide"><img src="images/project1_2.jpg" alt="Coastal Form Detail"></div>
+                <div class="slide"><img src="images/project1_3.jpg" alt="Internal Circulation"></div>
+                <div class="slide"><img src="images/project1_4.jpg" alt="Commercial Area"></div>
+                <div class="slide"><img src="images/project1_5.jpg" alt="Atmospheric Render"></div>
             </div>
-            <!-- Dynamic Dots Container -->
             <div class="dots-container" id="dotsContainer"></div>
         </div>
 
         <!-- PROJECT CONTENT -->
         <div class="grid md:grid-cols-3 gap-12">
             
-            <!-- Main Content Column -->
             <div class="md:col-span-2">
                 <h1 class="text-4xl font-bold text-teal-primary mb-2">CURVADIUM</h1>
                 <p class="text-coral font-semibold text-sm mb-10 uppercase tracking-wide">Concept: “Coastal Identity & Functional Renewal”</p>
@@ -146,16 +128,16 @@
                     <h3 class="text-xl font-bold mb-4 flex items-center text-teal-primary">
                         <i data-lucide="file-text" class="mr-3 text-coral w-5 h-5"></i> Project Description
                     </h3>
-                    <p class="text-gray-600 mb-6 text-justify">
+                    <p class="text-gray-600 mb-6">
                         This project proposes the renovation of an existing stadium in Khulna through a context-driven and functional design approach. Based on site analysis, key limitations were identified and addressed through improved spatial planning and user experience.
                     </p>
-                    <p class="text-gray-600 text-justify">
-                        The concept is inspired by coastal seashell geometry, reflected in the stadium’s form and overhead covering system. Container-style restaurant spaces reference the nearby Mongla Port, strengthening regional identity. The design emphasizes durability and climate-responsive material selection suitable for coastal conditions.
+                    <p class="text-gray-600">
+                        The concept is inspired by coastal seashell geometry, reflected in the stadium’s form and overhead covering system. Container-style restaurant spaces reference the nearby Mongla Port, strengthening regional identity.
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <!-- Features -->
+                    <!-- Key Features -->
                     <div>
                         <h3 class="text-lg font-bold mb-4 flex items-center text-teal-primary">
                             <i data-lucide="sparkles" class="mr-3 text-coral w-5 h-5"></i> Key Features
@@ -173,23 +155,23 @@
                         <h3 class="text-lg font-bold mb-4 flex items-center text-teal-primary">
                             <i data-lucide="layers" class="mr-3 text-coral w-5 h-5"></i> Materials Used
                         </h3>
-                        <div class="space-y-2">
-                            <div class="bg-white p-3 rounded-xl border border-gray-100 text-[13px] font-medium text-gray-700 uppercase tracking-tighter">• Reinforced Concrete</div>
-                            <div class="bg-white p-3 rounded-xl border border-gray-100 text-[13px] font-medium text-gray-700 uppercase tracking-tighter">• Corrosion-Resistant Steel</div>
-                            <div class="bg-white p-3 rounded-xl border border-gray-100 text-[13px] font-medium text-gray-700 uppercase tracking-tighter">• Tensile Roofing</div>
-                            <div class="bg-white p-3 rounded-xl border border-gray-100 text-[13px] font-medium text-gray-700 uppercase tracking-tighter">• Glass Panels & Local Materials</div>
+                        <div class="space-y-2 text-sm font-medium text-gray-700">
+                            <div class="bg-white p-3 rounded-xl border border-gray-100 uppercase tracking-tighter">• Reinforced Concrete</div>
+                            <div class="bg-white p-3 rounded-xl border border-gray-100 uppercase tracking-tighter">• Corrosion-Resistant Steel</div>
+                            <div class="bg-white p-3 rounded-xl border border-gray-100 uppercase tracking-tighter">• Tensile Roofing</div>
+                            <div class="bg-white p-3 rounded-xl border border-gray-100 uppercase tracking-tighter">• Glass & Local Materials</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Sidebar Sidebar -->
+            <!-- Sidebar -->
             <div class="space-y-6">
-                <!-- Software Box -->
+                <!-- Software -->
                 <div class="bg-teal-primary text-white p-8 rounded-[35px] shadow-lg">
                     <h4 class="text-[11px] font-bold uppercase tracking-wider mb-6 opacity-60">Software Used</h4>
                     <ul class="space-y-4">
-                        <li class="flex items-center font-medium text-[15px] text-white"><i data-lucide="check" class="mr-3 text-coral w-4 h-4"></i> Autodesk Revit</li>
+                        <li class="flex items-center font-medium text-[15px] text-white"><i data-lucide="check" class="mr-3 text-coral w-4 h-4"></i> Revit</li>
                         <li class="flex items-center font-medium text-[15px] text-white"><i data-lucide="check" class="mr-3 text-coral w-4 h-4"></i> V-Ray</li>
                         <li class="flex items-center font-medium text-[15px] text-white"><i data-lucide="check" class="mr-3 text-coral w-4 h-4"></i> AutoCAD</li>
                         <li class="flex items-center font-medium text-[15px] text-white"><i data-lucide="check" class="mr-3 text-coral w-4 h-4"></i> MS Excel</li>
@@ -219,7 +201,6 @@
         Md. Aminul Islam | Engineering Portfolio
     </footer>
 
-    <!-- DYNAMIC JAVASCRIPT -->
     <script>
         lucide.createIcons();
         const track = document.getElementById('sliderTrack');
@@ -241,14 +222,11 @@
             track.style.transform = `translateX(-${currentSlide * 100}%)`;
             dots.forEach((dot, index) => { dot.classList.toggle('active', index === currentSlide); });
         }
-
-        function moveSlide(direction) {
-            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+        
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
             updateSlider();
-        }
-
-        // Auto-slide every 5 seconds
-        setInterval(() => { moveSlide(1); }, 5000);
+        }, 5000);
     </script>
 </body>
 </html>
