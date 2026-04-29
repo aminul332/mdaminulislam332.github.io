@@ -112,8 +112,9 @@
     <section id="about" class="py-20 px-6">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
             
-            <!-- Education Card -->
+            <!-- Education Slider Card -->
             <div class="glass-card p-10 rounded-3xl card-inner" onclick="this.classList.toggle('active')">
+                <!-- FRONT FACE -->
                 <div class="main-content text-left">
                     <h2 class="text-2xl font-bold mb-6">Education</h2>
                     <div class="space-y-6">
@@ -131,37 +132,61 @@
                     </p>
                 </div>
                 
+                <!-- THE SLIDING LAYER -->
                 <div class="details-layer">
+                    <!-- Nav Arrows -->
                     <div class="prev-slide-btn" onclick="moveDetailsSlide(event, -1)"><i data-lucide="chevron-left"></i></div>
                     <div class="slide-nav-btn" onclick="moveDetailsSlide(event, 1)"><i data-lucide="chevron-right"></i></div>
+                    
                     <div class="details-slider-container">
                         <div class="details-track" id="detailsTrack">
+                            
+                            <!-- Slide 1: Undergraduate -->
                             <div class="details-slide">
                                 <h3 class="text-xl font-bold mb-4 text-coral">Undergraduate</h3>
-                                <ul class="text-sm space-y-3">
-                                    <li class="flex items-start"><i data-lucide="building-2" class="w-5 h-5 mr-3 text-coral"></i> <span>Dept. of BECM, KUET</span></li>
-                                    <li class="flex items-start"><i data-lucide="map-pin" class="w-5 h-5 mr-3 text-coral"></i> <span>Khulna-9203, Bangladesh</span></li>
-                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral"></i> <a href="https://kuet.ac.bd" target="_blank" class="hover:underline">kuet.ac.bd</a></li>
+                                <ul class="text-[13px] space-y-2.5">
+                                    <li class="flex items-start"><i data-lucide="building-2" class="w-4 h-4 mr-3 text-coral mt-1"></i> 
+                                        <span>Dept. of Building Engineering and Construction Management</span></li>
+                                    <li class="flex items-start"><i data-lucide="graduation-cap" class="w-4 h-4 mr-3 text-coral mt-1"></i> 
+                                        <span>Khulna University of Engineering & Technology</span></li>
+                                    <li class="flex items-start"><i data-lucide="map-pin" class="w-4 h-4 mr-3 text-coral mt-1"></i> 
+                                        <span>Khulna-9203, Bangladesh</span></li>
+                                    <li class="flex items-start"><i data-lucide="globe" class="w-4 h-4 mr-3 text-coral mt-1"></i> 
+                                        <a href="https://kuet.ac.bd" target="_blank" class="hover:underline">kuet.ac.bd</a></li>
                                 </ul>
                             </div>
+
+                            <!-- Slide 2: Higher Secondary -->
                             <div class="details-slide">
                                 <h3 class="text-xl font-bold mb-4 text-coral">Higher Secondary</h3>
-                                <ul class="text-sm space-y-3">
-                                    <li class="flex items-start"><i data-lucide="graduation-cap" class="w-5 h-5 mr-3 text-coral"></i> <span>Govt. Hazi Muhammad Mohsin College</span></li>
-                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral"></i> <a href="https://mohsincollege.edu.bd" target="_blank" class="hover:underline">mohsincollege.edu.bd</a></li>
+                                <ul class="text-[13px] space-y-2.5">
+                                    <li class="flex items-start"><i data-lucide="graduation-cap" class="w-4 h-4 mr-3 text-coral mt-1"></i> 
+                                        <span>Govt. Hazi Muhammad Mohsin College</span></li>
+                                    <li class="flex items-start"><i data-lucide="map-pin" class="w-4 h-4 mr-3 text-coral mt-1"></i> 
+                                        <span>College Road, Chattogram-4000</span></li>
+                                    <li class="flex items-start"><i data-lucide="globe" class="w-4 h-4 mr-3 text-coral mt-1"></i> 
+                                        <a href="https://mohsincollege.edu.bd" target="_blank" class="hover:underline">mohsincollege.edu.bd</a></li>
                                 </ul>
                             </div>
+
+                            <!-- Slide 3: Secondary -->
                             <div class="details-slide">
                                 <h3 class="text-xl font-bold mb-4 text-coral">Secondary</h3>
-                                <ul class="text-sm space-y-3">
-                                    <li class="flex items-start"><i data-lucide="school" class="w-5 h-5 mr-3 text-coral"></i> <span>BEPZA Public School & College</span></li>
-                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral"></i> <a href="https://www.bepzacollegectg.edu.bd" target="_blank" class="hover:underline">bepzacollegectg.edu.bd</a></li>
+                                <ul class="text-[13px] space-y-2.5">
+                                    <li class="flex items-start"><i data-lucide="school" class="w-4 h-4 mr-3 text-coral mt-1"></i> 
+                                        <span>BEPZA Public School & College</span></li>
+                                    <li class="flex items-start"><i data-lucide="map-pin" class="w-4 h-4 mr-3 text-coral mt-1"></i> 
+                                        <span>Chattogram EPZ, EPZ-4223, Chattogram</span></li>
+                                    <li class="flex items-start"><i data-lucide="globe" class="w-4 h-4 mr-3 text-coral mt-1"></i> 
+                                        <a href="https://www.bepzacollegectg.edu.bd" target="_blank" class="hover:underline">bepzacollegectg.edu.bd</a></li>
                                 </ul>
                             </div>
+
                         </div>
                     </div>
                     <p class="mt-auto text-[9px] uppercase tracking-widest opacity-50 text-center">Use Arrows to Switch | Click card to close</p>
                 </div>
+            </div>
             </div>
 
             <!-- Leadership Card -->
