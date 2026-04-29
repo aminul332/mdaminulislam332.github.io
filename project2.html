@@ -1,1 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAAWWUL | KUET Central Mosque Interior</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * { font-family: 'Poppins', sans-serif !important; }
+        body { background-color: #F4F7F6; color: #2D545E; line-height: 1.6; }
+        .bg-teal-primary { background-color: #2D545E; }
+        .text-coral { color: #FF6B6B; }
+        .accent-coral { background-color: #FF6B6B; }
 
+        /* Engineering Grid Background */
+        .engineering-grid {
+            background-image: radial-gradient(#2d545e1a 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* 3-Dot Hover Navigation Menu */
+        .nav-trigger { position: relative; display: inline-block; }
+        .hover-menu {
+            position: absolute; top: 0; left: 45px;
+            background: white; border: 1px solid rgba(45, 84, 94, 0.1);
+            border-radius: 15px; padding: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            display: flex; gap: 18px; opacity: 0; visibility: hidden;
+            transform: translateX(-15px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 100; white-space: nowrap;
+        }
+        .nav-trigger:hover .hover-menu { opacity: 1; visibility: visible; transform: translateX(0); }
+        .hover-link {
+            font-size: 10px; font-weight: 700; color: #2D545E;
+            text-transform: uppercase; letter-spacing: 1.5px; transition: 0.2s;
+        }
+        .hover-link:hover { color: #FF6B6B; }
+
+        /* Banner Slider */
+        .slider-container {
+            width: 100%; height: 500px; overflow: hidden;
+            position: relative; border-radius: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+        }
+        .slider-track {
+            display: flex; width: 100%; height: 100%;
+            transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+        .slide { min-width: 100%; height: 100%; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Dots */
+        .dots-container {
+            position: absolute; bottom: 25px; left: 50%;
+            transform: translateX(-50%); display: flex; gap: 10px; z-index: 30;
+        }
+        .dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4); cursor: pointer; transition: 0.3s;
+        }
+        .dot.active { background: #FF6B6B; width: 22px; border-radius: 10px; }
+    </style>
+</head>
+<body class="engineering-grid">
+
+    <!-- HEADER WITH 3-DOT FLY-OUT NAV -->
+    <header class="py-8 px-6 max-w-6xl mx-auto grid grid-cols-3 items-center">
+        <!-- LEFT: 3-Dot Menu + Prev -->
+        <div class="flex items-center gap-5 justify-self-start">
+            <div class="nav-trigger">
+                <div class="cursor-pointer p-2 hover:bg-teal-primary/5 rounded-full transition">
+                    <i data-lucide="more-vertical" class="w-5 h-5 text-teal-primary"></i>
+                </div>
+                <div class="hover-menu">
+                    <a href="index.html#home" class="hover-link">Home</a>
+                    <a href="index.html#about" class="hover-link">About</a>
+                    <a href="index.html#services" class="hover-link">Expertise</a>
+                    <a href="index.html#portfolio" class="hover-link">Portfolio</a>
+                    <a href="index.html#contact" class="hover-link">Contact</a>
+                </div>
+            </div>
+            <a href="project1.html" class="flex items-center text-[11px] font-bold text-teal-primary/40 hover:text-coral transition tracking-widest">
+                <i data-lucide="chevron-left" class="w-4 h-4 mr-1"></i> PREV
+            </a>
+        </div>
+
+        <!-- CENTER: ELEGANT BADGE -->
+        <div class="justify-self-center">
+            <div class="px-5 py-1.5 bg-teal-primary text-white rounded-full text-[10px] font-bold uppercase tracking-[3px]">
+                Project #02
+            </div>
+        </div>
+
+        <!-- RIGHT: NEXT PROJECT -->
+        <div class="justify-self-end">
+            <a href="project3.html" class="flex items-center text-[11px] font-bold text-teal-primary hover:text-coral transition tracking-widest">
+                NEXT <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6">
+        
+        <!-- DYNAMIC AUTO-SLIDER (7 PHOTOS) -->
+        <div class="slider-container mb-12">
+            <div class="slider-track" id="sliderTrack">
+                <div class="slide"><img src="images/project2_1.jpg" alt="Interior View 1"></div>
+                <div class="slide"><img src="images/project2_2.jpg" alt="Ceiling Detail"></div>
+                <div class="slide"><img src="images/project2_3.jpg" alt="Mihrab View"></div>
+                <div class="slide"><img src="images/project2_4.jpg" alt="Calligraphy Wall"></div>
+                <div class="slide"><img src="images/project2_5.jpg" alt="Lighting Layout"></div>
+                <div class="slide"><img src="images/project2_6.jpg" alt="Materials Close-up"></div>
+                <div class="slide"><img src="images/project2_7.jpg" alt="Final Render"></div>
+            </div>
+            <div class="dots-container" id="dotsContainer"></div>
+        </div>
+
+        <!-- PROJECT CONTENT -->
+        <div class="grid md:grid-cols-3 gap-12">
+            
+            <div class="md:col-span-2">
+                <h1 class="text-4xl font-bold text-teal-primary mb-2">TAAWWUL</h1>
+                <p class="text-coral font-semibold text-sm mb-10 uppercase tracking-wide">Concept: “Transition from Old to New”</p>
+                
+                <div class="mb-10">
+                    <h3 class="text-xl font-bold mb-4 flex items-center text-teal-primary">
+                        <i data-lucide="file-text" class="mr-3 text-coral w-5 h-5"></i> Project Description
+                    </h3>
+                    <p class="text-gray-600 mb-6">
+                        This project proposes the interior renovation of the KUET Central Mosque, focusing on creating a spiritually engaging and visually continuous prayer environment. The design blends Mughal-inspired elements with modern minimalism.
+                    </p>
+                    <p class="text-gray-600">
+                        Light, shadow, and geometric patterns are used to shape the space. Perforated partitions replace solid walls, allowing visual flow while maintaining zoning. The integration of Islamic geometry and warm wood materials reflects cultural identity.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <!-- Features -->
+                    <div>
+                        <h3 class="text-lg font-bold mb-4 flex items-center text-teal-primary">
+                            <i data-lucide="sparkles" class="mr-3 text-coral w-5 h-5"></i> Key Features
+                        </h3>
+                        <ul class="text-[14px] space-y-3 text-gray-600">
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-coral mr-2"></i> Mughal-inspired minimal interior</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-coral mr-2"></i> Light & shadow driven space</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-coral mr-2"></i> Perforated visual continuity</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-coral mr-2"></i> Islamic geometry & calligraphy</li>
+                        </ul>
+                    </div>
+
+                    <!-- Materials -->
+                    <div>
+                        <h3 class="text-lg font-bold mb-4 flex items-center text-teal-primary">
+                            <i data-lucide="layers" class="mr-3 text-coral w-5 h-5"></i> Materials & Lighting
+                        </h3>
+                        <div class="space-y-2">
+                            <div class="bg-white p-3 rounded-xl border border-gray-100 text-[13px] font-medium text-gray-700 uppercase tracking-tighter">
+                                MS Frame • Ceramic • Glass • Wood
+                            </div>
+                            <div class="bg-white p-3 rounded-xl border border-gray-100 text-[13px] font-medium text-gray-700 uppercase tracking-tighter">
+                                Flush • Pendant • Spot Lighting
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="space-y-6">
+                <div class="bg-teal-primary text-white p-8 rounded-[35px] shadow-lg">
+                    <h4 class="text-[11px] font-bold uppercase tracking-wider mb-6 opacity-60">Software Used</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-center font-medium text-[15px] text-white"><i data-lucide="check" class="mr-3 text-coral w-4 h-4"></i> Revit</li>
+                        <li class="flex items-center font-medium text-[15px] text-white"><i data-lucide="check" class="mr-3 text-coral w-4 h-4"></i> Lumion</li>
+                        <li class="flex items-center font-medium text-[15px] text-white"><i data-lucide="check" class="mr-3 text-coral w-4 h-4"></i> AutoCAD</li>
+                        <li class="flex items-center font-medium text-[15px] text-white"><i data-lucide="check" class="mr-3 text-coral w-4 h-4"></i> MS Excel</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-[35px] border border-gray-200 shadow-sm">
+                    <h4 class="text-[11px] font-bold uppercase tracking-wider mb-4 text-gray-400">My Role</h4>
+                    <p class="text-[14px] font-semibold text-teal-primary leading-snug">
+                        Concept • Interior Planning • Detailing • Costing
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-[35px] border border-gray-200 shadow-sm">
+                    <h4 class="text-[11px] font-bold uppercase tracking-wider mb-4 text-gray-400">Project Timeline</h4>
+                    <p class="text-xl font-bold text-teal-primary mb-1">13 Weeks</p>
+                    <p class="text-xs font-bold text-coral uppercase tracking-wide">Completed in 2024</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="mt-20 py-10 text-center border-t border-gray-100 text-gray-400 text-xs font-medium uppercase tracking-widest">
+        Md. Aminul Islam | Engineering Portfolio
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const track = document.getElementById('sliderTrack');
+        const dotsContainer = document.getElementById('dotsContainer');
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        // Auto-create dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.onclick = () => { currentSlide = index; updateSlider(); };
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+        function updateSlider() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, index) => { dot.classList.toggle('active', index === currentSlide); });
+        }
+        
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlider();
+        }, 5000);
+    </script>
+</body>
+</html>
