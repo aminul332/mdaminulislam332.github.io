@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Md. Aminul Islam | Civil Engineer Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Restored Montserrat for Headings and Poppins for Body -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         /* Typography System */
-        h1, h2, h3, h4, .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
         body, p, span, a, input, textarea { font-family: 'Poppins', sans-serif; }
 
         body { background-color: #F4F7F6; color: #2D545E; line-height: 1.6; }
@@ -23,7 +22,7 @@
             background-size: 30px 30px;
         }
 
-        /* Hire Me Pulse */
+        /* Hire Me Pulse Animation */
         @keyframes subtle-pulse {
             0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.4); }
             70% { box-shadow: 0 0 0 12px rgba(255, 107, 107, 0); }
@@ -46,7 +45,7 @@
         .details-track { display: flex; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); height: 100%; }
         .details-slide { flex: 0 0 100%; width: 100%; display: flex; flex-direction: column; justify-content: center; }
 
-        /* Arrows */
+        /* Slider Arrows */
         .prev-slide-btn, .slide-nav-btn {
             position: absolute; top: 50%; transform: translateY(-50%); z-index: 50;
             background: rgba(255, 255, 255, 0.15); padding: 12px 6px; cursor: pointer; color: #FF6B6B; transition: 0.3s;
@@ -85,10 +84,9 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-32 pb-20 px-6">
+    <section id="home" class="pt-40 pb-20 px-6">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div>
-                <!-- RESTORED ELEGANT MONTSERRAT HEADING -->
                 <h1 class="text-5xl md:text-6xl font-bold leading-tight text-teal-primary">
                     Aspiring Civil Engineer | <span class="text-gray-400 font-light">Building Design Enthusiast</span>
                 </h1>
@@ -104,7 +102,8 @@
             <div class="relative h-[420px] w-full max-w-sm mx-auto">
                 <div class="absolute inset-0 bg-coral rotate-3 rounded-3xl opacity-10"></div>
                 <div class="relative h-full w-full img-box rounded-3xl shadow-2xl border-4 border-white">
-                    <img src="images/profile.jpg" alt="Aminul Islam" class="w-full h-full object-cover" style="object-position: 15% top;">
+                    <!-- POSITION FIXED TO 8% AS REQUESTED -->
+                    <img src="images/profile.jpg" alt="Aminul Islam" class="w-full h-full object-cover" style="object-position: 8% top;">
                 </div>
             </div>
         </div>
@@ -114,7 +113,7 @@
     <section id="about" class="py-20 px-6">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
             
-            <!-- Education Slider Card -->
+            <!-- Education Card with Slider -->
             <div class="glass-card p-10 rounded-3xl card-inner" onclick="this.classList.toggle('active')">
                 <div class="main-content">
                     <h2 class="text-2xl font-bold mb-6">Education</h2>
@@ -138,30 +137,36 @@
                     <div class="slide-nav-btn" onclick="moveDetailsSlide(event, 1)"><i data-lucide="chevron-right"></i></div>
                     <div class="details-slider-container">
                         <div class="details-track" id="detailsTrack">
+                            <!-- Undergraduate -->
                             <div class="details-slide">
                                 <h3 class="text-xl font-bold mb-4 text-coral">Undergraduate</h3>
                                 <ul class="text-sm space-y-3">
-                                    <li class="flex items-start"><i data-lucide="building-2" class="w-5 h-5 mr-3 text-coral"></i> <span>Dept. of BECM, KUET</span></li>
-                                    <li class="flex items-start"><i data-lucide="map-pin" class="w-5 h-5 mr-3 text-coral"></i> <span>Khulna-9203, Bangladesh</span></li>
-                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral"></i> <a href="https://kuet.ac.bd" target="_blank" class="hover:underline">kuet.ac.bd</a></li>
+                                    <li class="flex items-start"><i data-lucide="building-2" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Dept. of Building Engineering and Construction Management</span></li>
+                                    <li class="flex items-start"><i data-lucide="map-pin" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Khulna University of Engineering & Technology (KUET)</span></li>
+                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <a href="https://kuet.ac.bd" target="_blank" class="hover:underline">kuet.ac.bd</a></li>
                                 </ul>
                             </div>
+                            <!-- College -->
                             <div class="details-slide">
                                 <h3 class="text-xl font-bold mb-4 text-coral">Higher Secondary</h3>
                                 <ul class="text-sm space-y-3">
-                                    <li class="flex items-start"><i data-lucide="graduation-cap" class="w-5 h-5 mr-3 text-coral"></i> <span>Govt. Hazi Muhammad Mohsin College</span></li>
-                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral"></i> <a href="https://mohsincollege.edu.bd" target="_blank" class="hover:underline">mohsincollege.edu.bd</a></li>
+                                    <li class="flex items-start"><i data-lucide="graduation-cap" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Govt. Hazi Muhammad Mohsin College</span></li>
+                                    <li class="flex items-start"><i data-lucide="map-pin" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>College Road, Chattogram-4000</span></li>
+                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <a href="https://mohsincollege.edu.bd" target="_blank" class="hover:underline">mohsincollege.edu.bd</a></li>
                                 </ul>
                             </div>
+                            <!-- School -->
                             <div class="details-slide">
                                 <h3 class="text-xl font-bold mb-4 text-coral">Secondary</h3>
                                 <ul class="text-sm space-y-3">
-                                    <li class="flex items-start"><i data-lucide="school" class="w-5 h-5 mr-3 text-coral"></i> <span>BEPZA Public School & College</span></li>
-                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral"></i> <a href="https://www.bepzacollegectg.edu.bd" target="_blank" class="hover:underline">bepzacollegectg.edu.bd</a></li>
+                                    <li class="flex items-start"><i data-lucide="school" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>BEPZA Public School & College</span></li>
+                                    <li class="flex items-start"><i data-lucide="map-pin" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Chattogram EPZ, EPZ-4223</span></li>
+                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <a href="https://www.bepzacollegectg.edu.bd" target="_blank" class="hover:underline">bepzacollegectg.edu.bd</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
+                    <p class="mt-auto text-[9px] uppercase tracking-widest opacity-50 text-center">Use Arrows to Switch | Click card to close</p>
                 </div>
             </div>
 
@@ -171,18 +176,19 @@
                     <h2 class="text-2xl font-bold mb-6 text-coral">Leadership</h2>
                     <ul class="space-y-4 text-sm font-medium">
                         <li class="flex items-center"><i data-lucide="award" class="mr-3 text-teal-primary"></i> Vice President – BECM Technical Club</li>
-                        <li class="flex items-center"><i data-lucide="users" class="mr-3 text-teal-primary"></i> Vice President – Chittagong Association</li>
-                        <li class="flex items-center"><i data-lucide="microscope" class="mr-3 text-teal-primary"></i> Executive Member – Research Society</li>
+                        <li class="flex items-center"><i data-lucide="users" class="mr-3 text-teal-primary"></i> Vice President – Chittagong Association of KUET</li>
+                        <li class="flex items-center"><i data-lucide="microscope" class="mr-3 text-teal-primary"></i> Executive Member – BECM Research Society</li>
                     </ul>
                     <p class="mt-8 text-xs font-bold text-teal-primary uppercase tracking-widest animate-bounce">Click to see Impact</p>
                 </div>
                 <div class="details-layer">
                     <h3 class="text-xl font-bold mb-4 text-coral">Roles & Impact</h3>
                     <ul class="text-sm space-y-4">
-                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral"></i> <span>Led 5+ major technical workshops at KUET.</span></li>
-                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral"></i> <span>Assisted 2 Inter-University Festivals.</span></li>
-                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral"></i> <span>Welfare management for 200+ students.</span></li>
+                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Led 5+ major technical workshops and webinars at KUET.</span></li>
+                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Organized 2 Inter-University National Festivals.</span></li>
+                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Managed activities for 200+ residential association students.</span></li>
                     </ul>
+                    <p class="mt-auto text-[10px] uppercase tracking-widest opacity-50 text-center">Click again to close</p>
                 </div>
             </div>
         </div>
@@ -191,27 +197,27 @@
     <!-- Expertise Section -->
     <section id="services" class="py-20 bg-teal-primary text-white">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-12 italic">Core Engineering Expertise</h2>
+            <h2 class="text-3xl font-bold mb-12 italic font-montserrat">Core Engineering Expertise</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
                 <div class="p-6 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition">
                     <i data-lucide="map" class="mx-auto mb-4 text-coral w-8 h-8"></i>
                     <h4 class="font-bold text-lg mb-2">Project Planning</h4>
-                    <p class="text-xs text-gray-400">Primavera P6 • MS Project</p>
+                    <p class="text-xs text-gray-400 font-medium">Primavera P6 • MS Project</p>
                 </div>
                 <div class="p-6 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition">
                     <i data-lucide="pen-tool" class="mx-auto mb-4 text-coral w-8 h-8"></i>
                     <h4 class="font-bold text-lg mb-2">Architectural Design</h4>
-                    <p class="text-xs text-gray-400">AutoCAD • Revit • SketchUp</p>
+                    <p class="text-xs text-gray-400 font-medium">AutoCAD • Revit • SketchUp</p>
                 </div>
                 <div class="p-6 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition">
                     <i data-lucide="box" class="mx-auto mb-4 text-coral w-8 h-8"></i>
                     <h4 class="font-bold text-lg mb-2">Structural Modeling</h4>
-                    <p class="text-xs text-gray-400">ETABS • SAP2000</p>
+                    <p class="text-xs text-gray-400 font-medium">ETABS • SAP2000</p>
                 </div>
                 <div class="p-6 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition">
                     <i data-lucide="layers" class="mx-auto mb-4 text-coral w-8 h-8"></i>
                     <h4 class="font-bold text-lg mb-2">Visualization</h4>
-                    <p class="text-xs text-gray-400">Lumion • V-Ray</p>
+                    <p class="text-xs text-gray-400 font-medium">Lumion • V-Ray</p>
                 </div>
             </div>
         </div>
@@ -220,22 +226,26 @@
     <!-- Portfolio Grid -->
     <section id="portfolio" class="py-20 px-6">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 flex items-center tracking-tight">
+            <h2 class="text-3xl font-bold mb-12 flex items-center tracking-tight font-montserrat">
                 <span class="w-8 h-1 bg-coral mr-4"></span> Portfolio Projects
             </h2>
             <div class="grid md:grid-cols-3 gap-8 text-sm">
+                <!-- Project 1 -->
                 <a href="project1.html" target="_blank" class="glass-card rounded-3xl overflow-hidden shadow-sm hover:ring-2 hover:ring-coral transition-all block">
                     <div class="h-48 img-box bg-slate-200"><img src="images/project1_1.jpg" alt="Curvadium" class="w-full h-full object-cover"></div>
                     <div class="p-6">
-                        <p class="font-bold text-lg leading-tight">Curvadium</p>
+                        <p class="font-bold text-lg leading-tight font-montserrat">Curvadium</p>
                         <p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">Revit • V-Ray • AutoCAD</p>
+                        <p class="mt-2 text-gray-400">View Project Details →</p>
                     </div>
                 </a>
+                <!-- Project 2 -->
                 <a href="project2.html" target="_blank" class="glass-card rounded-3xl overflow-hidden shadow-sm hover:ring-2 hover:ring-coral transition-all block">
                     <div class="h-48 img-box bg-slate-200"><img src="images/project2_1.jpg" alt="Taawwul" class="w-full h-full object-cover"></div>
                     <div class="p-6">
-                        <p class="font-bold text-lg leading-tight">Taawwul</p>
+                        <p class="font-bold text-lg leading-tight font-montserrat">Taawwul</p>
                         <p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">Revit • Lumion • Excel</p>
+                        <p class="mt-2 text-gray-400">View Project Details →</p>
                     </div>
                 </a>
             </div>
@@ -245,17 +255,19 @@
     <!-- Contact Section -->
     <section id="contact" class="py-20 px-6 max-w-4xl mx-auto">
         <div class="glass-card rounded-[40px] overflow-hidden flex flex-col md:flex-row shadow-2xl">
-            <!-- Left Contact Info -->
+            <!-- Left Info -->
             <div class="bg-teal-primary text-white p-12 md:w-1/2">
-                <h2 class="text-3xl font-bold mb-8 tracking-tighter">Get in Touch</h2>
-                <div class="space-y-7">
+                <h2 class="text-3xl font-bold mb-10 tracking-tighter font-montserrat">Get in Touch</h2>
+                <div class="space-y-8">
                     <a href="mailto:mdaminulislam332@gmail.com" class="flex items-center group transition-all hover:text-coral w-fit">
                         <i data-lucide="mail" class="mr-4 text-coral w-5 h-5 group-hover:scale-110 transition-transform"></i>
                         <span class="text-[13px] border-b border-transparent group-hover:border-coral transition-colors">mdaminulislam332@gmail.com</span>
                     </a>
                     <div onclick="copyNumber('+8801883342778')" class="flex items-center group cursor-pointer w-fit relative">
-                        <i data-lucide="phone" class="mr-4 text-coral w-5 h-5 group-hover:rotate-12 transition-transform"></i>
-                        <span class="text-[13px] transition-all group-hover:text-coral" id="phone-text">+8801883342778</span>
+                        <div class="flex items-center">
+                            <i data-lucide="phone" class="mr-4 text-coral w-5 h-5 group-hover:rotate-12 transition-transform"></i>
+                            <span class="text-[13px] transition-all group-hover:text-coral" id="phone-text">+8801883342778</span>
+                        </div>
                         <span id="copy-toast" class="ml-4 bg-coral/20 text-coral text-[9px] px-2 py-0.5 rounded border border-coral/30 opacity-0 transition-all duration-300 transform -translate-x-2 font-bold uppercase tracking-wider pointer-events-none">Copied</span>
                     </div>
                     <a href="https://linkedin.com/in/md-aminul-islam-89245b269" target="_blank" class="flex items-center group transition-all hover:text-coral w-fit">
@@ -267,9 +279,9 @@
             <!-- Right Form -->
             <div class="p-12 md:w-1/2">
                 <form class="space-y-4">
-                    <input type="text" id="clientName" placeholder="Your Name" class="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-coral/20 text-sm">
-                    <textarea id="clientMessage" placeholder="Your Message" rows="3" class="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-coral/20 text-sm"></textarea>
-                    <button type="button" onclick="sendWhatsApp()" class="accent-coral text-white w-full py-4 rounded-xl font-bold shadow-lg hover:brightness-110 transition duration-300 flex items-center justify-center">
+                    <input type="text" id="clientName" placeholder="Your Name" class="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-coral/20 transition-all text-sm">
+                    <textarea id="clientMessage" placeholder="Your Message" rows="3" class="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-coral/20 transition-all text-sm"></textarea>
+                    <button type="button" onclick="sendWhatsApp()" class="accent-coral text-white w-full py-4 rounded-xl font-bold shadow-lg hover:brightness-110 hover:scale-[1.02] transition-all duration-300 flex items-center justify-center font-montserrat">
                         <i data-lucide="message-circle" class="mr-2 w-5 h-5"></i> Send via WhatsApp
                     </button>
                 </form>
@@ -282,8 +294,10 @@
     </footer>
 
     <script>
+        // Init Lucide with thick stroke for elegance
         lucide.createIcons({ attrs: { 'stroke-width': 2.5, 'stroke': 'currentColor' } });
 
+        // Education Slider
         let currentDetailSlide = 0;
         const totalSlides = 3;
         function moveDetailsSlide(event, direction) {
@@ -293,19 +307,24 @@
             track.style.transform = `translateX(-${currentDetailSlide * 100}%)`;
         }
 
+        // Copy Phone Number Side-Reveal
         function copyNumber(number) {
             navigator.clipboard.writeText(number).then(() => {
                 const toast = document.getElementById('copy-toast');
                 toast.style.opacity = '1'; toast.style.transform = 'translateX(0)';
-                setTimeout(() => { toast.style.opacity = '0'; toast.style.transform = 'translateX(-8px)'; }, 2000);
+                setTimeout(() => { 
+                    toast.style.opacity = '0'; 
+                    toast.style.transform = 'translateX(-8px)';
+                }, 2000);
             });
         }
 
+        // WhatsApp Messaging
         function sendWhatsApp() {
             const name = document.getElementById('clientName').value;
             const message = document.getElementById('clientMessage').value;
-            if (!name || !message) { alert("Please fill fields."); return; }
-            window.open(`https://wa.me/8801883342778?text=${encodeURIComponent('Hi, I am ' + name + '. ' + message)}`, '_blank');
+            if (!name || !message) { alert("Please enter your name and message."); return; }
+            window.open(`https://wa.me/8801883342778?text=${encodeURIComponent('Hi Aminul, I am ' + name + '. ' + message)}`, '_blank');
         }
     </script>
 </body>
