@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Md. Aminul Islam | Civil Engineer Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Montserrat for Headings and Poppins for Body -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -108,13 +109,12 @@
         </div>
     </section>
 
-   <!-- About & Leadership -->
+   <!-- About & Leadership Section (Side-by-Side Fixed) -->
     <section id="about" class="py-20 px-6">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
             
-            <!-- Education Slider Card -->
+            <!-- 1. Education Slider Card -->
             <div class="glass-card p-10 rounded-3xl card-inner" onclick="this.classList.toggle('active')">
-                <!-- FRONT FACE -->
                 <div class="main-content text-left">
                     <h2 class="text-2xl font-bold mb-6">Education</h2>
                     <div class="space-y-6">
@@ -132,15 +132,11 @@
                     </p>
                 </div>
                 
-                <!-- THE SLIDING LAYER -->
                 <div class="details-layer">
-                    <!-- Nav Arrows -->
                     <div class="prev-slide-btn" onclick="moveDetailsSlide(event, -1)"><i data-lucide="chevron-left"></i></div>
                     <div class="slide-nav-btn" onclick="moveDetailsSlide(event, 1)"><i data-lucide="chevron-right"></i></div>
-                    
                     <div class="details-slider-container">
                         <div class="details-track" id="detailsTrack">
-                            
                             <!-- Slide 1: Undergraduate -->
                             <div class="details-slide">
                                 <h3 class="text-xl font-bold mb-4 text-coral">Undergraduate</h3>
@@ -155,8 +151,7 @@
                                         <a href="https://kuet.ac.bd" target="_blank" class="hover:underline">kuet.ac.bd</a></li>
                                 </ul>
                             </div>
-
-                            <!-- Slide 2: Higher Secondary -->
+                            <!-- Slide 2: College -->
                             <div class="details-slide">
                                 <h3 class="text-xl font-bold mb-4 text-coral">Higher Secondary</h3>
                                 <ul class="text-[13px] space-y-2.5">
@@ -168,8 +163,7 @@
                                         <a href="https://mohsincollege.edu.bd" target="_blank" class="hover:underline">mohsincollege.edu.bd</a></li>
                                 </ul>
                             </div>
-
-                            <!-- Slide 3: Secondary -->
+                            <!-- Slide 3: School -->
                             <div class="details-slide">
                                 <h3 class="text-xl font-bold mb-4 text-coral">Secondary</h3>
                                 <ul class="text-[13px] space-y-2.5">
@@ -181,15 +175,13 @@
                                         <a href="https://www.bepzacollegectg.edu.bd" target="_blank" class="hover:underline">bepzacollegectg.edu.bd</a></li>
                                 </ul>
                             </div>
-
                         </div>
                     </div>
                     <p class="mt-auto text-[9px] uppercase tracking-widest opacity-50 text-center">Use Arrows to Switch | Click card to close</p>
                 </div>
             </div>
-            </div>
 
-            <!-- Leadership Card -->
+            <!-- 2. Leadership Card -->
             <div class="glass-card p-10 rounded-3xl card-inner" onclick="this.classList.toggle('active')">
                 <div class="main-content text-left">
                     <h2 class="text-2xl font-bold mb-6 text-coral">Leadership</h2>
@@ -203,9 +195,9 @@
                 <div class="details-layer">
                     <h3 class="text-xl font-bold mb-4 text-coral">Roles & Impact</h3>
                     <ul class="text-sm space-y-4">
-                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral"></i> <span>Led 5+ major technical workshops and webinars at KUET.</span></li>
-                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral"></i> <span>Organized 2 Inter-University National Festivals.</span></li>
-                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral"></i> <span>Managed welfare for 200+ residential students.</span></li>
+                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Led 5+ major technical workshops and webinars at KUET.</span></li>
+                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Organized 2 Inter-University National Festivals.</span></li>
+                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Managed welfare for 200+ residential association students.</span></li>
                     </ul>
                     <p class="mt-auto text-[10px] uppercase tracking-widest opacity-50 text-center">Click again to close</p>
                 </div>
@@ -216,7 +208,7 @@
     <!-- Expertise Section -->
     <section id="services" class="py-20 bg-teal-primary text-white">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-12 italic font-montserrat">Core Engineering Expertise</h2>
+            <h2 class="text-3xl font-bold mb-12 italic font-montserrat text-white">Core Engineering Expertise</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
                 <div class="p-6 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition">
                     <i data-lucide="map" class="mx-auto mb-4 text-coral w-8 h-8"></i>
@@ -291,14 +283,14 @@
                         </div>
                         <span id="copy-toast" class="ml-4 bg-coral/20 text-coral text-[9px] px-2 py-0.5 rounded border border-coral/30 opacity-0 transition-all duration-300 transform -translate-x-2 font-bold uppercase tracking-wider pointer-events-none">Copied</span>
                     </div>
-                    <!-- LINKEDIN (Fixed visibility) -->
+                    <!-- LINKEDIN -->
                     <a href="https://linkedin.com/in/md-aminul-islam-89245b269" target="_blank" class="flex items-center group transition-all hover:text-coral w-fit">
                         <i data-lucide="linkedin" class="mr-4 text-coral w-5 h-5 group-hover:scale-110 transition-transform"></i>
                         <span class="text-[13px] border-b border-transparent group-hover:border-coral transition-colors">linkedin.com/in/md-aminul-islam</span>
                     </a>
                 </div>
             </div>
-            <!-- Right Form -->
+            <!-- Right Form (WhatsApp) -->
             <div class="p-12 md:w-1/2">
                 <form class="space-y-4">
                     <input type="text" id="clientName" placeholder="Your Name" class="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-coral/20 transition-all text-sm">
@@ -336,7 +328,7 @@
             track.style.transform = `translateX(-${currentDetailSlide * 100}%)`;
         }
 
-        // Copy Phone Number
+        // Copy Phone Number Side-Reveal
         function copyNumber(number) {
             navigator.clipboard.writeText(number).then(() => {
                 const toast = document.getElementById('copy-toast');
@@ -348,7 +340,7 @@
             });
         }
 
-        // WhatsApp Function
+        // WhatsApp Messaging
         function sendWhatsApp() {
             const name = document.getElementById('clientName').value;
             const message = document.getElementById('clientMessage').value;
