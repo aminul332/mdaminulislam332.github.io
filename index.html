@@ -45,7 +45,7 @@
         .details-track { display: flex; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); height: 100%; }
         .details-slide { flex: 0 0 100%; width: 100%; display: flex; flex-direction: column; justify-content: center; }
 
-        /* Slider Arrows */
+        /* Arrows */
         .prev-slide-btn, .slide-nav-btn {
             position: absolute; top: 50%; transform: translateY(-50%); z-index: 50;
             background: rgba(255, 255, 255, 0.15); padding: 12px 6px; cursor: pointer; color: #FF6B6B; transition: 0.3s;
@@ -99,10 +99,9 @@
                 </div>
             </div>
 
-            <div class="relative h-[420px] w-full max-w-sm mx-auto">
+            <div class="relative h-[420px] w-full max-sm:h-[350px] max-w-sm mx-auto">
                 <div class="absolute inset-0 bg-coral rotate-3 rounded-3xl opacity-10"></div>
                 <div class="relative h-full w-full img-box rounded-3xl shadow-2xl border-4 border-white">
-                    <!-- POSITION FIXED TO 8% AS REQUESTED -->
                     <img src="images/profile.jpg" alt="Aminul Islam" class="w-full h-full object-cover" style="object-position: 8% top;">
                 </div>
             </div>
@@ -113,9 +112,9 @@
     <section id="about" class="py-20 px-6">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
             
-            <!-- Education Card with Slider -->
+            <!-- Education Card -->
             <div class="glass-card p-10 rounded-3xl card-inner" onclick="this.classList.toggle('active')">
-                <div class="main-content">
+                <div class="main-content text-left">
                     <h2 class="text-2xl font-bold mb-6">Education</h2>
                     <div class="space-y-6">
                         <div class="border-l-4 border-teal-primary pl-4">
@@ -137,31 +136,26 @@
                     <div class="slide-nav-btn" onclick="moveDetailsSlide(event, 1)"><i data-lucide="chevron-right"></i></div>
                     <div class="details-slider-container">
                         <div class="details-track" id="detailsTrack">
-                            <!-- Undergraduate -->
                             <div class="details-slide">
                                 <h3 class="text-xl font-bold mb-4 text-coral">Undergraduate</h3>
                                 <ul class="text-sm space-y-3">
-                                    <li class="flex items-start"><i data-lucide="building-2" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Dept. of Building Engineering and Construction Management</span></li>
-                                    <li class="flex items-start"><i data-lucide="map-pin" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Khulna University of Engineering & Technology (KUET)</span></li>
-                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <a href="https://kuet.ac.bd" target="_blank" class="hover:underline">kuet.ac.bd</a></li>
+                                    <li class="flex items-start"><i data-lucide="building-2" class="w-5 h-5 mr-3 text-coral"></i> <span>Dept. of BECM, KUET</span></li>
+                                    <li class="flex items-start"><i data-lucide="map-pin" class="w-5 h-5 mr-3 text-coral"></i> <span>Khulna-9203, Bangladesh</span></li>
+                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral"></i> <a href="https://kuet.ac.bd" target="_blank" class="hover:underline">kuet.ac.bd</a></li>
                                 </ul>
                             </div>
-                            <!-- College -->
                             <div class="details-slide">
                                 <h3 class="text-xl font-bold mb-4 text-coral">Higher Secondary</h3>
                                 <ul class="text-sm space-y-3">
-                                    <li class="flex items-start"><i data-lucide="graduation-cap" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Govt. Hazi Muhammad Mohsin College</span></li>
-                                    <li class="flex items-start"><i data-lucide="map-pin" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>College Road, Chattogram-4000</span></li>
-                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <a href="https://mohsincollege.edu.bd" target="_blank" class="hover:underline">mohsincollege.edu.bd</a></li>
+                                    <li class="flex items-start"><i data-lucide="graduation-cap" class="w-5 h-5 mr-3 text-coral"></i> <span>Govt. Hazi Muhammad Mohsin College</span></li>
+                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral"></i> <a href="https://mohsincollege.edu.bd" target="_blank" class="hover:underline">mohsincollege.edu.bd</a></li>
                                 </ul>
                             </div>
-                            <!-- School -->
                             <div class="details-slide">
                                 <h3 class="text-xl font-bold mb-4 text-coral">Secondary</h3>
                                 <ul class="text-sm space-y-3">
-                                    <li class="flex items-start"><i data-lucide="school" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>BEPZA Public School & College</span></li>
-                                    <li class="flex items-start"><i data-lucide="map-pin" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Chattogram EPZ, EPZ-4223</span></li>
-                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <a href="https://www.bepzacollegectg.edu.bd" target="_blank" class="hover:underline">bepzacollegectg.edu.bd</a></li>
+                                    <li class="flex items-start"><i data-lucide="school" class="w-5 h-5 mr-3 text-coral"></i> <span>BEPZA Public School & College</span></li>
+                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral"></i> <a href="https://www.bepzacollegectg.edu.bd" target="_blank" class="hover:underline">bepzacollegectg.edu.bd</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -172,21 +166,21 @@
 
             <!-- Leadership Card -->
             <div class="glass-card p-10 rounded-3xl card-inner" onclick="this.classList.toggle('active')">
-                <div class="main-content">
+                <div class="main-content text-left">
                     <h2 class="text-2xl font-bold mb-6 text-coral">Leadership</h2>
                     <ul class="space-y-4 text-sm font-medium">
                         <li class="flex items-center"><i data-lucide="award" class="mr-3 text-teal-primary"></i> Vice President – BECM Technical Club</li>
                         <li class="flex items-center"><i data-lucide="users" class="mr-3 text-teal-primary"></i> Vice President – Chittagong Association of KUET</li>
-                        <li class="flex items-center"><i data-lucide="microscope" class="mr-3 text-teal-primary"></i> Executive Member – BECM Research Society</li>
+                        <li class="flex items-center"><i data-lucide="microscope" class="mr-3 text-teal-primary"></i> Executive Member – Research Society</li>
                     </ul>
                     <p class="mt-8 text-xs font-bold text-teal-primary uppercase tracking-widest animate-bounce">Click to see Impact</p>
                 </div>
                 <div class="details-layer">
                     <h3 class="text-xl font-bold mb-4 text-coral">Roles & Impact</h3>
                     <ul class="text-sm space-y-4">
-                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Led 5+ major technical workshops and webinars at KUET.</span></li>
-                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Organized 2 Inter-University National Festivals.</span></li>
-                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Managed activities for 200+ residential association students.</span></li>
+                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral"></i> <span>Led 5+ major technical workshops and webinars at KUET.</span></li>
+                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral"></i> <span>Organized 2 Inter-University National Festivals.</span></li>
+                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral"></i> <span>Managed welfare for 200+ residential students.</span></li>
                     </ul>
                     <p class="mt-auto text-[10px] uppercase tracking-widest opacity-50 text-center">Click again to close</p>
                 </div>
@@ -234,7 +228,7 @@
                 <a href="project1.html" target="_blank" class="glass-card rounded-3xl overflow-hidden shadow-sm hover:ring-2 hover:ring-coral transition-all block">
                     <div class="h-48 img-box bg-slate-200"><img src="images/project1_1.jpg" alt="Curvadium" class="w-full h-full object-cover"></div>
                     <div class="p-6">
-                        <p class="font-bold text-lg leading-tight font-montserrat">Curvadium</p>
+                        <p class="font-bold text-lg leading-tight font-montserrat uppercase">Curvadium</p>
                         <p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">Revit • V-Ray • AutoCAD</p>
                         <p class="mt-2 text-gray-400">View Project Details →</p>
                     </div>
@@ -243,7 +237,7 @@
                 <a href="project2.html" target="_blank" class="glass-card rounded-3xl overflow-hidden shadow-sm hover:ring-2 hover:ring-coral transition-all block">
                     <div class="h-48 img-box bg-slate-200"><img src="images/project2_1.jpg" alt="Taawwul" class="w-full h-full object-cover"></div>
                     <div class="p-6">
-                        <p class="font-bold text-lg leading-tight font-montserrat">Taawwul</p>
+                        <p class="font-bold text-lg leading-tight font-montserrat uppercase">Taawwul</p>
                         <p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">Revit • Lumion • Excel</p>
                         <p class="mt-2 text-gray-400">View Project Details →</p>
                     </div>
@@ -259,10 +253,12 @@
             <div class="bg-teal-primary text-white p-12 md:w-1/2">
                 <h2 class="text-3xl font-bold mb-10 tracking-tighter font-montserrat">Get in Touch</h2>
                 <div class="space-y-8">
+                    <!-- EMAIL -->
                     <a href="mailto:mdaminulislam332@gmail.com" class="flex items-center group transition-all hover:text-coral w-fit">
                         <i data-lucide="mail" class="mr-4 text-coral w-5 h-5 group-hover:scale-110 transition-transform"></i>
                         <span class="text-[13px] border-b border-transparent group-hover:border-coral transition-colors">mdaminulislam332@gmail.com</span>
                     </a>
+                    <!-- PHONE -->
                     <div onclick="copyNumber('+8801883342778')" class="flex items-center group cursor-pointer w-fit relative">
                         <div class="flex items-center">
                             <i data-lucide="phone" class="mr-4 text-coral w-5 h-5 group-hover:rotate-12 transition-transform"></i>
@@ -270,10 +266,10 @@
                         </div>
                         <span id="copy-toast" class="ml-4 bg-coral/20 text-coral text-[9px] px-2 py-0.5 rounded border border-coral/30 opacity-0 transition-all duration-300 transform -translate-x-2 font-bold uppercase tracking-wider pointer-events-none">Copied</span>
                     </div>
-                    <!-- Final Fixed LinkedIn Line -->
+                    <!-- LINKEDIN (Fixed visibility) -->
                     <a href="https://linkedin.com/in/md-aminul-islam-89245b269" target="_blank" class="flex items-center group transition-all hover:text-coral w-fit">
-                    <i data-lucide="linkedin" class="mr-4 text-coral w-5 h-5 group-hover:scale-110 transition-transform flex-shrink-0"></i>
-                    <span class="text-[13px] border-b border-transparent group-hover:border-coral transition-colors">linkedin.com/in/md-aminul-islam</span>
+                        <i data-lucide="linkedin" class="mr-4 text-coral w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-[13px] border-b border-transparent group-hover:border-coral transition-colors">linkedin.com/in/md-aminul-islam</span>
                     </a>
                 </div>
             </div>
@@ -295,7 +291,7 @@
     </footer>
 
     <script>
-        // Force icons to load after DOM is ready
+        // Use single initialization inside DOMContentLoaded for reliability
         document.addEventListener("DOMContentLoaded", function() {
             lucide.createIcons({ 
                 attrs: { 
@@ -304,13 +300,6 @@
                 } 
             });
         });
-
-        // Your existing functions below...
-        let currentDetailSlide = 0;
-        // ... rest of the code
-        
-        // Init Lucide with thick stroke for elegance
-        lucide.createIcons({ attrs: { 'stroke-width': 2.5, 'stroke': 'currentColor' } });
 
         // Education Slider
         let currentDetailSlide = 0;
@@ -322,7 +311,7 @@
             track.style.transform = `translateX(-${currentDetailSlide * 100}%)`;
         }
 
-        // Copy Phone Number Side-Reveal
+        // Copy Phone Number
         function copyNumber(number) {
             navigator.clipboard.writeText(number).then(() => {
                 const toast = document.getElementById('copy-toast');
@@ -334,7 +323,7 @@
             });
         }
 
-        // WhatsApp Messaging
+        // WhatsApp Function
         function sendWhatsApp() {
             const name = document.getElementById('clientName').value;
             const message = document.getElementById('clientMessage').value;
