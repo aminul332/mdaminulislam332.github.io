@@ -5,11 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Md. Aminul Islam | Civil Engineer Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Updated Lucide CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* --- CLICKABLE CARD CSS --- */
+        /* Force Poppins consistency */
+        * { font-family: 'Poppins', sans-serif !important; }
+        body { background-color: #F4F7F6; color: #2D545E; line-height: 1.6; }
+        
+        .bg-teal-primary { background-color: #2D545E; }
+        .text-teal-primary { color: #2D545E; }
+        .accent-coral { background-color: #FF6B6B; }
+
+        /* Engineering Grid Background */
+        .engineering-grid {
+            background-image: radial-gradient(#2d545e1a 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* Eye-catching pulse for the Hire Me button */
+        @keyframes subtle-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.4); }
+            70% { box-shadow: 0 0 0 12px rgba(255, 107, 107, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
+        }
+        .pulse-btn { animation: subtle-pulse 2s infinite; }
+
+        /* CLICKABLE CARD SYSTEM */
         .card-inner {
             position: relative;
             cursor: pointer;
@@ -29,105 +51,41 @@
             justify-content: center;
             z-index: 20;
         }
-        .card-inner.active .details-layer {
-            transform: translateY(0);
-        }
-        .main-content {
-            transition: opacity 0.3s ease;
-        }
-        .card-inner.active .main-content {
-            opacity: 0;
-        }
-        
-        body { font-family: 'Poppins', sans-serif; background-color: #F4F7F6; color: #2D545E; }
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
-        
-        .engineering-grid {
-            background-image: radial-gradient(#2d545e1a 1px, transparent 1px);
-            background-size: 30px 30px;
-        }
+        .card-inner.active .details-layer { transform: translateY(0); }
+        .main-content { transition: opacity 0.3s ease; }
+        .card-inner.active .main-content { opacity: 0; }
 
-        .bg-teal-primary { background-color: #2D545E; }
-        .text-teal-primary { color: #2D545E; }
-        .accent-coral { background-color: #FF6B6B; }
-        
+        /* INTERNAL SLIDER CSS */
+        .details-slider-container { width: 100%; height: 100%; overflow: hidden; position: relative; }
+        .details-track { display: flex; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); height: 100%; }
+        .details-slide { flex: 0 0 100%; width: 100%; display: flex; flex-direction: column; justify-content: center; }
+
+        /* Slider Navigation Arrows */
+        .prev-slide-btn, .slide-nav-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            z-index: 50; background: rgba(255, 255, 255, 0.15);
+            padding: 12px 6px; cursor: pointer; color: #FF6B6B; transition: 0.3s;
+        }
+        .prev-slide-btn { left: -10px; border-radius: 0 12px 12px 0; }
+        .slide-nav-btn { right: -10px; border-radius: 12px 0 0 12px; }
+        .prev-slide-btn:hover, .slide-nav-btn:hover { background: #FF6B6B; color: white; }
+
         .glass-card {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
         }
-        .glass-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.9);
-        }
+        .glass-card:hover { transform: translateY(-5px); background: rgba(255, 255, 255, 0.9); }
 
         .img-box {
             background: #E1E8E5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden; position: relative;
         }
 
         .nav-link:hover { color: #FF6B6B; transition: 0.3s; }
         html { scroll-behavior: smooth; }
-
-        /* --- INTERNAL SLIDER CSS --- */
-        .details-slider-container {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            position: relative;
-        }
-        .details-track {
-            display: flex;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            height: 100%;
-        }
-        .details-slide {
-            flex: 0 0 100%;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .slide-nav-btn {
-            position: absolute;
-            right: -15px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 50;
-            background: rgba(255, 255, 255, 0.15);
-            padding: 12px 6px;
-            border-radius: 12px 0 0 12px;
-            cursor: pointer;
-            color: #FF6B6B;
-            transition: 0.3s;
-        }
-        .slide-nav-btn:hover {
-            background: #FF6B6B;
-            color: white;
-        }
-        /* Leftward Arrow Button */
-        .prev-slide-btn {
-            position: absolute;
-            left: -15px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 50;
-            background: rgba(255, 255, 255, 0.15);
-            padding: 12px 6px;
-            border-radius: 0 12px 12px 0; 
-            cursor: pointer;
-            color: #FF6B6B;
-            transition: 0.3s;
-        }
-        .prev-slide-btn:hover {
-            background: #FF6B6B;
-            color: white;
-        }
     </style>
 </head>
 <body class="engineering-grid">
@@ -139,11 +97,17 @@
             <div class="hidden md:flex space-x-8 font-medium text-sm">
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About</a>
-                <a href="#services" class="nav-link">Services</a>
+                <a href="#services" class="nav-link">Expertise</a>
                 <a href="#portfolio" class="nav-link">Portfolio</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
-            <a href="mailto:mdaminulislam332@gmail.com" class="accent-coral text-white px-5 py-2 rounded-lg font-bold text-sm hover:opacity-90 transition">Hire Me</a>
+            <!-- Pulse-Effect CV Download Button -->
+            <a href="images/CV_Aminul_Islam.pdf" 
+               target="_blank" 
+               download="CV_Aminul_Islam" 
+               class="accent-coral text-white px-6 py-2.5 rounded-xl font-bold text-sm pulse-btn flex items-center hover:scale-105 transition-all">
+               <i data-lucide="file-down" class="mr-2 w-4 h-4"></i> Hire Me
+            </a>
         </div>
     </nav>
 
@@ -159,7 +123,7 @@
                 </p>
                 <div class="mt-10 flex space-x-4">
                     <a href="#portfolio" class="bg-teal-primary text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:bg-opacity-90 transition">View Portfolio</a>
-                    <a href="#contact" class="border-2 border-teal-primary text-teal-primary px-8 py-4 rounded-xl font-bold hover:bg-teal-primary hover:text-white transition">Contact</a>
+                    <a href="#contact" class="border-2 border-teal-primary text-teal-primary px-8 py-4 rounded-xl font-bold hover:bg-teal-primary hover:text-white transition">Contact Me</a>
                 </div>
             </div>
 
@@ -169,7 +133,7 @@
                     <img src="images/profile.jpg" 
                          alt="Aminul Islam" 
                          class="w-full h-full object-cover" 
-                         style="object-position: 6% top;">
+                         style="object-position: 15% top;">
                 </div>
             </div>
         </div>
@@ -179,7 +143,7 @@
     <section id="about" class="py-20 px-6">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
             
-            <!-- Education Card with Slider -->
+            <!-- Education Card with Sliding Details -->
             <div class="glass-card p-10 rounded-3xl card-inner" onclick="this.classList.toggle('active')">
                 <div class="main-content">
                     <h2 class="text-2xl font-bold mb-6">Education</h2>
@@ -199,47 +163,34 @@
                 </div>
                 
                 <div class="details-layer">
-                    <!-- LEFT ARROW -->
-                    <div class="prev-slide-btn" onclick="moveDetailsSlide(event, -1)">
-                        <i data-lucide="chevron-left" class="w-6 h-6"></i>
-                    </div>
-
-                    <!-- RIGHT ARROW -->
-                    <div class="slide-nav-btn" onclick="moveDetailsSlide(event, 1)">
-                        <i data-lucide="chevron-right" class="w-6 h-6"></i>
-                    </div>
+                    <div class="prev-slide-btn" onclick="moveDetailsSlide(event, -1)"><i data-lucide="chevron-left"></i></div>
+                    <div class="slide-nav-btn" onclick="moveDetailsSlide(event, 1)"><i data-lucide="chevron-right"></i></div>
 
                     <div class="details-slider-container">
                         <div class="details-track" id="detailsTrack">
-                            
-                            <!-- Slide 1: Undergraduate -->
                             <div class="details-slide">
                                 <h3 class="text-xl font-bold mb-4 text-coral">Undergraduate</h3>
                                 <ul class="text-sm space-y-3">
-                                    <li class="flex items-start"><i data-lucide="building-2" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Dept. of Building Engineering and Construction Management</span></li>
-                                    <li class="flex items-start"><i data-lucide="graduation-cap" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Khulna University of Engineering & Technology</span></li>
-                                    <li class="flex items-start"><i data-lucide="map-pin" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Khulna-9203, Bangladesh</span></li>
-                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <a href="https://kuet.ac.bd" target="_blank" class="hover:underline">kuet.ac.bd</a></li>
+                                    <li class="flex items-start"><i data-lucide="building-2" class="w-5 h-5 mr-3 text-coral"></i> <span>Dept. of Building Engineering and Construction Management</span></li>
+                                    <li class="flex items-start"><i data-lucide="graduation-cap" class="w-5 h-5 mr-3 text-coral"></i> <span>Khulna University of Engineering & Technology</span></li>
+                                    <li class="flex items-start"><i data-lucide="map-pin" class="w-5 h-5 mr-3 text-coral"></i> <span>Khulna-9203, Bangladesh</span></li>
+                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral"></i> <a href="https://kuet.ac.bd" target="_blank" class="hover:underline">kuet.ac.bd</a></li>
                                 </ul>
                             </div>
-
-                            <!-- Slide 2: College -->
                             <div class="details-slide">
                                 <h3 class="text-xl font-bold mb-4 text-coral">Higher Secondary</h3>
                                 <ul class="text-sm space-y-3">
-                                    <li class="flex items-start"><i data-lucide="graduation-cap" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Govt. Hazi Muhammad Mohsin College</span></li>
-                                    <li class="flex items-start"><i data-lucide="map-pin" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>College Road, Chattogram-4000</span></li>
-                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <a href="https://mohsincollege.edu.bd" target="_blank" class="hover:underline">mohsincollege.edu.bd</a></li>
+                                    <li class="flex items-start"><i data-lucide="graduation-cap" class="w-5 h-5 mr-3 text-coral"></i> <span>Govt. Hazi Muhammad Mohsin College</span></li>
+                                    <li class="flex items-start"><i data-lucide="map-pin" class="w-5 h-5 mr-3 text-coral"></i> <span>College Road, Chattogram-4000</span></li>
+                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral"></i> <a href="https://mohsincollege.edu.bd" target="_blank" class="hover:underline">mohsincollege.edu.bd</a></li>
                                 </ul>
                             </div>
-
-                            <!-- Slide 3: School -->
                             <div class="details-slide">
                                 <h3 class="text-xl font-bold mb-4 text-coral">Secondary</h3>
                                 <ul class="text-sm space-y-3">
-                                    <li class="flex items-start"><i data-lucide="school" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>BEPZA Public School & College</span></li>
-                                    <li class="flex items-start"><i data-lucide="map-pin" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Chattogram EPZ, Chattogram-4223</span></li>
-                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <a href="https://www.bepzacollegectg.edu.bd" target="_blank" class="hover:underline">bepzacollegectg.edu.bd</a></li>
+                                    <li class="flex items-start"><i data-lucide="school" class="w-5 h-5 mr-3 text-coral"></i> <span>BEPZA Public School & College</span></li>
+                                    <li class="flex items-start"><i data-lucide="map-pin" class="w-5 h-5 mr-3 text-coral"></i> <span>Chattogram EPZ, Chattogram-4223</span></li>
+                                    <li class="flex items-start"><i data-lucide="globe" class="w-5 h-5 mr-3 text-coral"></i> <a href="https://www.bepzacollegectg.edu.bd" target="_blank" class="hover:underline">bepzacollegectg.edu.bd</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -251,23 +202,20 @@
             <!-- Leadership Card -->
             <div class="glass-card p-10 rounded-3xl card-inner" onclick="this.classList.toggle('active')">
                 <div class="main-content">
-                    <h2 class="text-2xl font-bold mb-6 text-coral">Leadership Experience</h2>
+                    <h2 class="text-2xl font-bold mb-6 text-coral">Leadership</h2>
                     <ul class="space-y-4 text-sm font-medium">
                         <li class="flex items-center"><i data-lucide="award" class="mr-3 text-teal-primary"></i> Vice President – BECM Technical Club</li>
                         <li class="flex items-center"><i data-lucide="users" class="mr-3 text-teal-primary"></i> Vice President – Chittagong Association of KUET</li>
-                        <li class="flex items-center"><i data-lucide="microscope" class="mr-3 text-teal-primary"></i> Executive Member – BECM Research Society</li>
+                        <li class="flex items-center"><i data-lucide="microscope" class="mr-3 text-teal-primary"></i> Executive Member – Research Society</li>
                     </ul>
-                    <p class="mt-8 text-xs font-bold text-teal-primary uppercase tracking-widest animate-bounce flex items-center">
-                        <i data-lucide="mouse-pointer-2" class="w-4 h-4 mr-2"></i> Click to see Impact
-                    </p>
+                    <p class="mt-8 text-xs font-bold text-teal-primary uppercase tracking-widest animate-bounce">Click to see Impact</p>
                 </div>
                 <div class="details-layer">
                     <h3 class="text-xl font-bold mb-4 text-coral">Roles & Impact</h3>
                     <ul class="text-sm space-y-4">
                         <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Organized and led 5+ major technical workshops at KUET.</span></li>
-                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Organized and assisted 2 inter university national festivals.</span></li>
-                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Managed welfare and activities for 200+ students.</span></li>
-                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Actively contributing to Research on Sustainable Construction.</span></li>
+                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Organized and assisted 2 Inter-University National Festivals.</span></li>
+                        <li class="flex items-start"><i data-lucide="star" class="w-5 h-5 mr-3 text-coral mt-0.5"></i> <span>Managed welfare and activities for 200+ KUET students.</span></li>
                     </ul>
                     <p class="mt-auto text-[10px] uppercase tracking-widest opacity-50 text-center">Click again to close</p>
                 </div>
@@ -280,99 +228,55 @@
         <div class="max-w-7xl mx-auto px-6 text-center">
             <h2 class="text-3xl font-bold mb-12 italic">Core Engineering Expertise</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
-                
-                <!-- Project Planning -->
                 <div class="p-6 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition">
                     <i data-lucide="map" class="mx-auto mb-4 text-coral w-8 h-8"></i>
                     <h4 class="font-bold text-lg mb-2">Project Planning</h4>
                     <p class="text-xs text-gray-400">Primavera P6 • MS Project</p>
                 </div>
-
-                <!-- Architectural Design -->
                 <div class="p-6 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition">
                     <i data-lucide="pen-tool" class="mx-auto mb-4 text-coral w-8 h-8"></i>
                     <h4 class="font-bold text-lg mb-2">Architectural Design</h4>
                     <p class="text-xs text-gray-400">AutoCAD • Revit • SketchUP</p>
                 </div>
-
-                <!-- Structural Modeling -->
                 <div class="p-6 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition">
                     <i data-lucide="box" class="mx-auto mb-4 text-coral w-8 h-8"></i>
                     <h4 class="font-bold text-lg mb-2">Structural Modeling</h4>
                     <p class="text-xs text-gray-400">ETABS • SAP2000</p>
                 </div>
-
-                <!-- Visualization -->
                 <div class="p-6 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition">
                     <i data-lucide="layers" class="mx-auto mb-4 text-coral w-8 h-8"></i>
                     <h4 class="font-bold text-lg mb-2">Visualization</h4>
                     <p class="text-xs text-gray-400">Lumion • V-Ray</p>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <<!-- Portfolio Grid -->
+    <!-- Portfolio Grid -->
     <section id="portfolio" class="py-20 px-6">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-3xl font-bold mb-12 flex items-center tracking-tight">
                 <span class="w-8 h-1 bg-coral mr-4"></span> Portfolio Projects
             </h2>
             <div class="grid md:grid-cols-3 gap-8 text-sm">
-                
-                <!-- Project 1 Link -->
+                <!-- Project 1 -->
                 <a href="project1.html" target="_blank" class="glass-card rounded-3xl overflow-hidden shadow-sm hover:ring-2 hover:ring-coral transition-all block">
-                    <div class="h-48 img-box bg-slate-200">
-                        <img src="images/project1_1.jpg" alt="Project" class="w-full h-full object-cover">
-                    </div>
+                    <div class="h-48 img-box bg-slate-200"><img src="images/project1_1.jpg" alt="Curvadium" class="w-full h-full object-cover"></div>
                     <div class="p-6">
                         <p class="font-bold text-lg leading-tight">Curvadium</p>
-                        <p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">Revit • V-Ray • AutoCAD </p>
+                        <p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">Revit • V-Ray • AutoCAD</p>
                         <p class="mt-2 text-gray-400">Click to view details →</p>
                     </div>
                 </a>
-
-                <!-- Project 2 Link -->
+                <!-- Project 2 -->
                 <a href="project2.html" target="_blank" class="glass-card rounded-3xl overflow-hidden shadow-sm hover:ring-2 hover:ring-coral transition-all block">
-                    <div class="h-48 img-box bg-slate-200">
-                        <img src="images/project2_1.jpg" alt="Project" class="w-full h-full object-cover">
-                    </div>
+                    <div class="h-48 img-box bg-slate-200"><img src="images/project2_1.jpg" alt="Taawwul" class="w-full h-full object-cover"></div>
                     <div class="p-6">
                         <p class="font-bold text-lg leading-tight">Taawwul</p>
-                        <p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">Revit • Lumion • AutoCAD • MS Excel</p>
+                        <p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">Revit • Lumion • Excel</p>
                         <p class="mt-2 text-gray-400">Click to view details →</p>
                     </div>
                 </a>
-
-                 <!-- Project 3 Link -->
-                <a href="project3.html" target="_blank" class="glass-card rounded-3xl overflow-hidden shadow-sm hover:ring-2 hover:ring-coral transition-all block">
-                    <div class="h-48 img-box bg-slate-200">
-                        <img src="images/project2.jpg" alt="Project" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <p class="font-bold text-lg leading-tight">5-Storey Residential</p>
-                        <p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">AutoCAD</p>
-                        <p class="mt-2 text-gray-400">Click to view details →</p>
-                    </div>
-                </a>
-
-                 <!-- Project 4 Link -->
-                <a href="project4.html" target="_blank" class="glass-card rounded-3xl overflow-hidden shadow-sm hover:ring-2 hover:ring-coral transition-all block">
-                    <div class="h-48 img-box bg-slate-200">
-                        <img src="images/project2.jpg" alt="Project" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <p class="font-bold text-lg leading-tight">5-Storey Residential</p>
-                        <p class="text-xs font-bold text-coral mt-3 uppercase tracking-widest">AutoCAD</p>
-                        <p class="mt-2 text-gray-400">Click to view details →</p>
-                    </div>
-                </a>
-
-
-                <!-- Repeat this pattern for Projects 3, 4, 5, and 6 -->
-                <!-- Just change the href to project3.html, project4.html, etc. -->
-
             </div>
         </div>
     </section>
@@ -404,33 +308,15 @@
 
     <script>
         // Init Lucide
-        lucide.createIcons({
-            attrs: {
-                'stroke-width': 2.5,
-                'stroke': 'currentColor'
-            }
-        });
+        lucide.createIcons({ attrs: { 'stroke-width': 2.5, 'stroke': 'currentColor' } });
 
         let currentDetailSlide = 0;
         const totalSlides = 3;
 
         function moveDetailsSlide(event, direction) {
-            // Prevents the card from closing
             event.stopPropagation();
-            
             const track = document.getElementById('detailsTrack');
-            
-            // Add or subtract from index
-            currentDetailSlide += direction;
-            
-            // Loop Logic
-            if (currentDetailSlide >= totalSlides) {
-                currentDetailSlide = 0; 
-            } else if (currentDetailSlide < 0) {
-                currentDetailSlide = totalSlides - 1; 
-            }
-            
-            // Move the track
+            currentDetailSlide = (currentDetailSlide + direction + totalSlides) % totalSlides;
             track.style.transform = `translateX(-${currentDetailSlide * 100}%)`;
         }
     </script>
