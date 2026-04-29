@@ -284,40 +284,108 @@
     <!-- Contact Section -->
     <section id="contact" class="py-20 px-6 max-w-4xl mx-auto">
         <div class="glass-card rounded-[40px] overflow-hidden flex flex-col md:flex-row shadow-2xl">
-            <div class="bg-teal-primary text-white p-12 md:w-1/2">
-                <h2 class="text-3xl font-bold mb-6 tracking-tighter">Get in Touch</h2>
-                <div class="space-y-6 text-sm">
-                    <p class="flex items-center"><i data-lucide="mail" class="mr-4 text-coral"></i> mdaminulislam332@gmail.com</p>
-                    <p class="flex items-center"><i data-lucide="phone" class="mr-4 text-coral"></i> +8801883342778</p>
-                    <p class="flex items-center"><i data-lucide="linkedin" class="mr-4 text-coral"></i> linkedin.com/in/md-aminul-islam</p>
+            <!-- Left Side: Contact Info -->
+            <div class="bg-teal-primary text-white p-12 md:w-1/2 relative">
+                <h2 class="text-3xl font-bold mb-8 tracking-tighter">Get in Touch</h2>
+                
+                <div class="space-y-6">
+                    <!-- EMAIL: Clickable -->
+                    <a href="mailto:mdaminulislam332@gmail.com" class="flex items-center group transition-all hover:text-coral">
+                        <i data-lucide="mail" class="mr-4 text-coral w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-sm border-b border-transparent group-hover:border-coral">mdaminulislam332@gmail.com</span>
+                    </a>
+
+                    <!-- PHONE: Click to Copy -->
+                    <div onclick="copyNumber('+8801883342778')" class="flex items-center group cursor-pointer relative">
+                        <i data-lucide="phone" class="mr-4 text-coral w-5 h-5 group-hover:rotate-12 transition-transform"></i>
+                        <span class="text-sm transition-all hover:text-coral" id="phone-text">+8801883342778</span>
+                        
+                        <!-- Floating Copied Message -->
+                        <span id="copy-toast" class="absolute -top-8 left-10 bg-coral text-white text-[10px] px-2 py-1 rounded opacity-0 transition-opacity font-bold">
+                            COPIED!
+                        </span>
+                    </div>
+
+                    <!-- LINKEDIN: Clickable -->
+                    <a href="https://linkedin.com/in/md-aminul-islam-89245b269" target="_blank" class="flex items-center group transition-all hover:text-coral">
+                        <i data-lucide="linkedin" class="mr-4 text-coral w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-sm border-b border-transparent group-hover:border-coral">linkedin.com/in/md-aminul-islam</span>
+                    </a>
                 </div>
             </div>
+
+            <!-- Right Side: Message Form -->
             <div class="p-12 md:w-1/2">
                 <form class="space-y-4">
-                    <input type="text" placeholder="Your Name" class="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-coral/20">
-                    <textarea placeholder="Your Message" rows="3" class="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-coral/20"></textarea>
-                    <button class="accent-coral text-white w-full py-4 rounded-xl font-bold shadow-lg hover:brightness-110 transition duration-300">Send Message</button>
+                    <!-- Added IDs to capture data -->
+                    <input type="text" id="clientName" placeholder="Your Name" class="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-coral/20 text-sm">
+                    <textarea id="clientMessage" placeholder="Your Message" rows="3" class="w-full p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-coral/20 text-sm"></textarea>
+                    
+                    <!-- Button calls the WhatsApp function -->
+                    <button type="button" onclick="sendWhatsApp()" class="accent-coral text-white w-full py-4 rounded-xl font-bold shadow-lg hover:brightness-110 transition duration-300 flex items-center justify-center">
+                        <i data-lucide="message-circle" class="mr-2 w-5 h-5"></i> Send via WhatsApp
+                    </button>
                 </form>
             </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="py-10 text-center text-teal-primary/50 text-[10px] font-bold uppercase tracking-[4px]">
         © 2024 Md. Aminul Islam | KUET BECM
     </footer>
 
     <script>
-        // Init Lucide
+        // Initialize Icons
         lucide.createIcons({ attrs: { 'stroke-width': 2.5, 'stroke': 'currentColor' } });
 
+        // Education Slider Logic
         let currentDetailSlide = 0;
         const totalSlides = 3;
-
         function moveDetailsSlide(event, direction) {
             event.stopPropagation();
             const track = document.getElementById('detailsTrack');
             currentDetailSlide = (currentDetailSlide + direction + totalSlides) % totalSlides;
             track.style.transform = `translateX(-${currentDetailSlide * 100}%)`;
+        }
+
+        // --- NEW: Copy Phone Number Function ---
+        function copyNumber(number) {
+            navigator.clipboard.writeText(number).then(() => {
+                const toast = document.getElementById('copy-toast');
+                const phoneText = document.getElementById('phone-text');
+                
+                // Show "Copied" toast
+                toast.style.opacity = '1';
+                phoneText.style.color = '#FF6B6B'; // Temporarily turn number coral
+                
+                // Hide after 2 seconds
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    phoneText.style.color = '';
+                }, 2000);
+            });
+        }
+
+        // --- NEW: WhatsApp Messaging Function ---
+        function sendWhatsApp() {
+            const name = document.getElementById('clientName').value;
+            const message = document.getElementById('clientMessage').value;
+            const myNumber = "8801883342778"; // Your number without '+'
+
+            // Validation: Ensure fields aren't empty
+            if (name === "" || message === "") {
+                alert("Please enter both your name and a message.");
+                return;
+            }
+
+            // Create the encoded WhatsApp URL
+            // Format: Hi Aminul, I am [Name]. [Message]
+            const encodedText = encodeURIComponent(`Hi Aminul, I am ${name}. ${message}`);
+            const whatsappURL = `https://wa.me/${myNumber}?text=${encodedText}`;
+
+            // Open WhatsApp in a new tab
+            window.open(whatsappURL, '_blank');
         }
     </script>
 </body>
