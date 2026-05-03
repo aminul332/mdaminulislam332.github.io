@@ -271,24 +271,28 @@
                 <h2 class="text-3xl font-bold mb-10 tracking-tighter font-montserrat">Get in Touch</h2>
                 <div class="space-y-8">
                     
-                    <!-- EMAIL: Properly configured to trigger compose -->
-                    <a href=https://mail.google.com/mail/?view=cm&fs=1&to=mdaminulislam332@gmail.com class="flex items-center group transition-all hover:text-coral w-fit">
-                        <i data-lucide="mail" class="mr-4 text-coral w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                    <!-- EMAIL: Opens Gmail Web Compose in New Tab -->
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mdaminulislam332@gmail.com" 
+                       target="_blank" 
+                       class="flex items-center group transition-all hover:text-coral w-fit">
+                        <i data-lucide="mail" class="mr-4 text-coral w-5 h-5 group-hover:scale-110 transition-transform flex-shrink-0"></i>
                         <span class="text-[13px] border-b border-transparent group-hover:border-coral transition-colors">mdaminulislam332@gmail.com</span>
                     </a>
 
-                    <!-- PHONE -->
+                    <!-- PHONE: Click to Copy -->
                     <div onclick="copyNumber('+8801883342778')" class="flex items-center group cursor-pointer w-fit relative">
                         <div class="flex items-center">
-                            <i data-lucide="phone" class="mr-4 text-coral w-5 h-5 group-hover:rotate-12 transition-transform"></i>
+                            <i data-lucide="phone" class="mr-4 text-coral w-5 h-5 group-hover:rotate-12 transition-transform flex-shrink-0"></i>
                             <span class="text-[13px] transition-all group-hover:text-coral" id="phone-text">+8801883342778</span>
                         </div>
                         <span id="copy-toast" class="ml-4 bg-coral/20 text-coral text-[9px] px-2 py-0.5 rounded border border-coral/30 opacity-0 transition-all duration-300 transform -translate-x-2 font-bold uppercase tracking-wider pointer-events-none">Copied</span>
                     </div>
 
-                    <!-- LINKEDIN: Icon tag added and flex-aligned -->
-                    <a href="https://www.linkedin.com/in/md-aminul-islam-89245b269" target="_blank" class="flex items-center group transition-all hover:text-coral w-fit">
-                        <i data-lucide="linkedin" class="mr-4 text-coral w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                    <!-- LINKEDIN: Fixed Icon + Link -->
+                    <a href="https://www.linkedin.com/in/md-aminul-islam-89245b269" 
+                       target="_blank" 
+                       class="flex items-center group transition-all hover:text-coral w-fit">
+                        <i data-lucide="linkedin" class="mr-4 text-coral w-5 h-5 group-hover:scale-110 transition-transform flex-shrink-0"></i>
                         <span class="text-[13px] border-b border-transparent group-hover:border-coral transition-colors">linkedin.com/in/md-aminul-islam</span>
                     </a>
                     
@@ -312,8 +316,8 @@
     </footer>
 
     <script>
-        // Initialize Icons with a tiny delay to ensure all HTML is ready
-        function initIcons() {
+        // Professional Icon Initialization
+        function loadIcons() {
             lucide.createIcons({ 
                 attrs: { 
                     'stroke-width': 2.5, 
@@ -321,12 +325,12 @@
                 } 
             });
         }
-        
-        document.addEventListener("DOMContentLoaded", initIcons);
-        // Backup call to fix LinkedIn visibility issues
-        window.onload = initIcons;
 
-        // Education Slider
+        // Run when page loads and when window fully finishes (for slow connections)
+        document.addEventListener("DOMContentLoaded", loadIcons);
+        window.onload = loadIcons;
+
+        // Education Slider Logic
         let currentDetailSlide = 0;
         const totalSlides = 3;
         function moveDetailsSlide(event, direction) {
@@ -336,11 +340,12 @@
             track.style.transform = `translateX(-${currentDetailSlide * 100}%)`;
         }
 
-        // Copy Phone Number
+        // Copy Phone Number Logic
         function copyNumber(number) {
             navigator.clipboard.writeText(number).then(() => {
                 const toast = document.getElementById('copy-toast');
-                toast.style.opacity = '1'; toast.style.transform = 'translateX(0)';
+                toast.style.opacity = '1'; 
+                toast.style.transform = 'translateX(0)';
                 setTimeout(() => { 
                     toast.style.opacity = '0'; 
                     toast.style.transform = 'translateX(-8px)';
@@ -348,12 +353,13 @@
             });
         }
 
-        // WhatsApp Messaging
+        // WhatsApp Logic
         function sendWhatsApp() {
             const name = document.getElementById('clientName').value;
             const message = document.getElementById('clientMessage').value;
             if (!name || !message) { alert("Please enter your name and message."); return; }
-            window.open(`https://wa.me/8801883342778?text=${encodeURIComponent('Hi Aminul, I am ' + name + '. ' + message)}`, '_blank');
+            const encodedText = encodeURIComponent(`Hi Aminul, I am ${name}. ${message}`);
+            window.open(`https://wa.me/8801883342778?text=${encodedText}`, '_blank');
         }
     </script>
 </body>
