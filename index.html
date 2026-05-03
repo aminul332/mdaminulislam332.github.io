@@ -270,11 +270,13 @@
             <div class="bg-teal-primary text-white p-12 md:w-1/2">
                 <h2 class="text-3xl font-bold mb-10 tracking-tighter font-montserrat">Get in Touch</h2>
                 <div class="space-y-8">
-                    <!-- EMAIL -->
+                    
+                    <!-- EMAIL: Properly configured to trigger compose -->
                     <a href="mailto:mdaminulislam332@gmail.com" class="flex items-center group transition-all hover:text-coral w-fit">
                         <i data-lucide="mail" class="mr-4 text-coral w-5 h-5 group-hover:scale-110 transition-transform"></i>
                         <span class="text-[13px] border-b border-transparent group-hover:border-coral transition-colors">mdaminulislam332@gmail.com</span>
                     </a>
+
                     <!-- PHONE -->
                     <div onclick="copyNumber('+8801883342778')" class="flex items-center group cursor-pointer w-fit relative">
                         <div class="flex items-center">
@@ -283,11 +285,13 @@
                         </div>
                         <span id="copy-toast" class="ml-4 bg-coral/20 text-coral text-[9px] px-2 py-0.5 rounded border border-coral/30 opacity-0 transition-all duration-300 transform -translate-x-2 font-bold uppercase tracking-wider pointer-events-none">Copied</span>
                     </div>
-                    <!-- LINKEDIN -->
-                    <a href="https://linkedin.com/in/md-aminul-islam-89245b269" target="_blank" class="flex items-center group transition-all hover:text-coral w-fit">
+
+                    <!-- LINKEDIN: Icon tag added and flex-aligned -->
+                    <a href="https://www.linkedin.com/in/md-aminul-islam-89245b269" target="_blank" class="flex items-center group transition-all hover:text-coral w-fit">
                         <i data-lucide="linkedin" class="mr-4 text-coral w-5 h-5 group-hover:scale-110 transition-transform"></i>
                         <span class="text-[13px] border-b border-transparent group-hover:border-coral transition-colors">linkedin.com/in/md-aminul-islam</span>
                     </a>
+                    
                 </div>
             </div>
             <!-- Right Form (WhatsApp) -->
@@ -308,15 +312,19 @@
     </footer>
 
     <script>
-        // Use single initialization inside DOMContentLoaded for reliability
-        document.addEventListener("DOMContentLoaded", function() {
+        // Initialize Icons with a tiny delay to ensure all HTML is ready
+        function initIcons() {
             lucide.createIcons({ 
                 attrs: { 
                     'stroke-width': 2.5, 
                     'stroke': 'currentColor' 
                 } 
             });
-        });
+        }
+        
+        document.addEventListener("DOMContentLoaded", initIcons);
+        // Backup call to fix LinkedIn visibility issues
+        window.onload = initIcons;
 
         // Education Slider
         let currentDetailSlide = 0;
@@ -328,7 +336,7 @@
             track.style.transform = `translateX(-${currentDetailSlide * 100}%)`;
         }
 
-        // Copy Phone Number Side-Reveal
+        // Copy Phone Number
         function copyNumber(number) {
             navigator.clipboard.writeText(number).then(() => {
                 const toast = document.getElementById('copy-toast');
